@@ -774,14 +774,13 @@ function TestPageContent() {
           {String.fromCharCode(65 + index)}
         </span>
 
-        <span className="text-lg font-medium leading-6">
+        <span className="flex-1 text-lg font-medium leading-6">
           {answer}
         </span>
       </button>
     );
   })}
 </div>
-
             {hasCheckedAnswer && (
               <div
                 className={`mb-6 p-4 rounded-2xl font-semibold text-center border ${
