@@ -368,19 +368,20 @@ function TestPageContent() {
   </div>
 </div>
 
-              <div className="bg-blue-50 rounded-2xl p-5 border border-blue-100 mb-8 shadow-sm">
-    <div className="space-y-6 text-slate-700 flex flex-col items-center text-center"></div>
-                <h2 className="text-xl font-semibold text-slate-900 mb-3">
-                  Uputstvo
-                </h2>
-                <div className="space-y-6 text-slate-700 flex flex-col items-center text-center">
-                  <p>• Izaberi jedan odgovor za svako pitanje.</p>
-                  <p>• Klikni na „Proveri odgovor“ da vidiš rezultat pitanja.</p>
-                  <p>• Nakon toga prelaziš na sledeće pitanje.</p>
-                  <p>• Po završetku dobijaš detaljan analitički izveštaj.</p>
-                </div>
-              </div>
+              <div className="bg-slate-100 rounded-3xl p-10 flex flex-col items-center text-center space-y-8">
 
+  <h3 className="text-3xl font-bold text-slate-900">
+    Uputstvo
+  </h3>
+
+  <div className="space-y-5 text-slate-700 text-lg max-w-2xl">
+    <p>• Izaberi jedan odgovor za svako pitanje.</p>
+    <p>• Klikni na „Proveri odgovor“ da vidiš rezultat pitanja.</p>
+    <p>• Nakon toga prelaziš na sledeće pitanje.</p>
+    <p>• Po završetku dobijaš detaljan analitički izveštaj.</p>
+  </div>
+
+</div>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <button
                   onClick={() => setStarted(true)}
