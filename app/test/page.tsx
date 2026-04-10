@@ -326,7 +326,7 @@ function TestPageContent() {
 
         <div className="px-4 py-10">
           <div className="max-w-4xl mx-auto bg-white/90 backdrop-blur rounded-3xl shadow-2xl border border-white/60 overflow-hidden">
-            <div className="bg-gradient-to-r from-blue-600 to-indigo-600 px-8 py-10 text-white text-center">
+            <div className="bg-gradient-to-r from-blue-600 to-indigo-600 px-8 py-8 text-white text-center">
               <div className="inline-flex px-4 py-2 rounded-full bg-white/20 text-sm font-semibold mb-4">
                 {modeLabel}
               </div>
@@ -368,7 +368,7 @@ function TestPageContent() {
   </div>
 </div>
 
-              <div className="bg-blue-50 rounded-2xl p-6 border border-blue-100 mb-8">
+              <div className="bg-blue-50 rounded-2xl p-5 border border-blue-100 mb-8 shadow-sm">
                 <h2 className="text-xl font-semibold text-slate-900 mb-3">
                   Uputstvo
                 </h2>
@@ -380,20 +380,20 @@ function TestPageContent() {
                 </div>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <button
                   onClick={() => setStarted(true)}
-                  className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-8 py-4 rounded-2xl font-semibold shadow-lg hover:scale-[1.02] transition"
+                 className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-7 py-3 rounded-2xl font-semibold shadow-lg hover:scale-[1.02] transition"
                 >
                   Započni test
                 </button>
 
-                <a
-                  href="/"
-                  className="inline-flex items-center justify-center bg-slate-200 text-slate-800 px-8 py-4 rounded-2xl font-semibold hover:bg-slate-300 transition"
-                >
-                  Nazad na početnu
-                </a>
+               <a
+  href="/"
+  className="inline-flex items-center justify-center bg-slate-200 text-slate-800 px-7 py-3 rounded-2xl font-semibold hover:bg-slate-300 transition"
+>
+  Nazad na početnu
+</a>
               </div>
             </div>
           </div>
