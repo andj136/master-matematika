@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { Suspense, useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { questions as baseQuestions } from "../../data/questions";
 
@@ -144,7 +144,7 @@ function AreaChart({
   );
 }
 
-export default function TestPage() {
+function TestPageContent() {
   const searchParams = useSearchParams();
   const mode = searchParams.get("mode") || "mixed";
   const areaFilter = searchParams.get("area") || "Sve oblasti";
@@ -814,10 +814,19 @@ export default function TestPage() {
                   ? "Završi test"
                   : "Sledeće pitanje"}
               </button>
+              
             )}
           </div>
         </div>
       </div>
+      
     </main>
+  );
+}
+export default function TestPage() {
+  return (
+    <Suspense fallback={<div>Učitavanje testa...</div>}>
+      <TestPageContent />
+    </Suspense>
   );
 }
