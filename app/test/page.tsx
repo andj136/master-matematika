@@ -372,7 +372,7 @@ function TestPageContent() {
                 <h2 className="text-xl font-semibold text-slate-900 mb-3">
                   Uputstvo
                 </h2>
-                <div className="space-y-2 text-slate-700">
+                <div className="space-y-6 text-slate-700 flex flex-col items-center text-center">
                   <p>• Izaberi jedan odgovor za svako pitanje.</p>
                   <p>• Klikni na „Proveri odgovor“ da vidiš rezultat pitanja.</p>
                   <p>• Nakon toga prelaziš na sledeće pitanje.</p>
