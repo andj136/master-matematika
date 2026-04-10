@@ -86,7 +86,7 @@ export default function Home() {
             Matematički test sistem
           </a>
 
-          <nav className="flex items-center gap-3 text-sm flex-wrap justify-end">
+          <nav className="flex items-center gap-2 text-sm overflow-x-auto whitespace-nowrap justify-end">
             <a
               href="#rezimi"
               className="px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 transition"
