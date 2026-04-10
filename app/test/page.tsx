@@ -338,35 +338,35 @@ function TestPageContent() {
             </div>
 
             <div className="p-8">
-              <div className="grid md:grid-cols-4 gap-4 mb-8">
-                <div className="bg-slate-50 rounded-2xl p-6 border border-slate-100 text-center">
-                  <p className="text-sm text-slate-500 mb-2">Broj pitanja</p>
-                  <p className="text-3xl font-bold text-slate-900">
-                    {testQuestions.length}
-                  </p>
-                </div>
+             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+  <div className="bg-slate-50 rounded-2xl p-5 border border-slate-100 text-center shadow-sm">
+    <p className="text-sm text-slate-500 mb-2">Broj pitanja</p>
+    <p className="text-2xl md:text-3xl font-bold text-slate-900">
+      {testQuestions.length}
+    </p>
+  </div>
 
-                <div className="bg-slate-50 rounded-2xl p-6 border border-slate-100 text-center">
-                  <p className="text-sm text-slate-500 mb-2">Vreme</p>
-                  <p className="text-3xl font-bold text-slate-900">
-                    {formatTime(timeLeft)}
-                  </p>
-                </div>
+  <div className="bg-slate-50 rounded-2xl p-5 border border-slate-100 text-center shadow-sm">
+    <p className="text-sm text-slate-500 mb-2">Vreme</p>
+    <p className="text-2xl md:text-3xl font-bold text-slate-900">
+      {formatTime(timeLeft)}
+    </p>
+  </div>
 
-                <div className="bg-slate-50 rounded-2xl p-6 border border-slate-100 text-center">
-                  <p className="text-sm text-slate-500 mb-2">Oblasti</p>
-                  <p className="text-lg font-bold text-slate-900">
-                    {new Set(testQuestions.map((q) => q.area)).size}
-                  </p>
-                </div>
+  <div className="bg-slate-50 rounded-2xl p-5 border border-slate-100 text-center shadow-sm">
+    <p className="text-sm text-slate-500 mb-2">Oblasti</p>
+    <p className="text-2xl md:text-3xl font-bold text-slate-900">
+      {new Set(testQuestions.map((q) => q.area)).size}
+    </p>
+  </div>
 
-                <div className="bg-slate-50 rounded-2xl p-6 border border-slate-100 text-center">
-                  <p className="text-sm text-slate-500 mb-2">Filter oblasti</p>
-                  <p className="text-sm font-bold text-slate-900">
-                    {areaFilter}
-                  </p>
-                </div>
-              </div>
+  <div className="bg-slate-50 rounded-2xl p-5 border border-slate-100 text-center shadow-sm">
+    <p className="text-sm text-slate-500 mb-2">Filter oblasti</p>
+    <p className="text-sm md:text-base font-bold text-slate-900 break-words">
+      {areaFilter}
+    </p>
+  </div>
+</div>
 
               <div className="bg-blue-50 rounded-2xl p-6 border border-blue-100 mb-8">
                 <h2 className="text-xl font-semibold text-slate-900 mb-3">
