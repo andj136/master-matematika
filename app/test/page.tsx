@@ -1,13 +1,22 @@
-import { Suspense } from "react";
-import TestPageContent from "./TestPageContent";
+"use client";
 
-export default function TestPage() {
-  return (
-    <Suspense fallback={<div>Učitavanje testa...</div>}>
-      <TestPageContent />
-    </Suspense>
-  );
-}
+import { Suspense, useEffect, useMemo, useState } from "react";
+import { useSearchParams } from "next/navigation";
+import { questions as baseQuestions } from "../../data/questions";
+
+type AreaStats = {
+  total: number;
+  correct: number;
+};
+
+type Question = {
+  question: string;
+  answers: string[];
+  correct: string;
+  area: string;
+  difficulty: string;
+};
+
 type AnswerReview = {
   question: string;
   selectedAnswer: string;
@@ -805,12 +814,10 @@ function TestPageContent() {
                   ? "Završi test"
                   : "Sledeće pitanje"}
               </button>
-              
             )}
           </div>
         </div>
       </div>
-      
     </main>
   );
 }
