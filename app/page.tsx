@@ -25,6 +25,7 @@ const AREAS = [
 ];
 
 export default function Home() {
+  const [menuOpen, setMenuOpen] = useState(false)
   const [history, setHistory] = useState<LastResult[]>([]);
   const [selectedArea, setSelectedArea] = useState("Sve oblasti");
   const [customQuestionsCount, setCustomQuestionsCount] = useState(0);

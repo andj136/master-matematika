@@ -741,43 +741,46 @@ function TestPageContent() {
               </p>
             </div>
 
-            <div className="grid gap-4 mb-6">
-              {current.answers.map((answer, index) => {
-                let buttonClass =
-                  "bg-white text-slate-800 border-slate-200 hover:border-blue-400 hover:bg-blue-50";
+           <div className="grid gap-4 mb-6">
+  {current.answers.map((answer, index) => {
+    let buttonClass =
+      "bg-white text-slate-800 border-slate-200 hover:border-blue-400 hover:bg-blue-50";
 
-                if (selectedAnswer === answer && !hasCheckedAnswer) {
-                  buttonClass =
-                    "bg-blue-600 text-white border-blue-700 shadow-lg";
-                }
+    if (selectedAnswer === answer && !hasCheckedAnswer) {
+      buttonClass =
+        "bg-blue-600 text-white border-blue-700 shadow-lg";
+    }
 
-                if (hasCheckedAnswer) {
-                  if (answer === current.correct) {
-                    buttonClass =
-                      "bg-green-600 text-white border-green-700 shadow-lg";
-                  } else if (answer === selectedAnswer && answer !== current.correct) {
-                    buttonClass =
-                      "bg-red-600 text-white border-red-700 shadow-lg";
-                  } else {
-                    buttonClass = "bg-slate-100 text-slate-500 border-slate-200";
-                  }
-                }
+    if (hasCheckedAnswer) {
+      if (answer === current.correct) {
+        buttonClass =
+          "bg-green-600 text-white border-green-700 shadow-lg";
+      } else if (answer === selectedAnswer && answer !== current.correct) {
+        buttonClass =
+          "bg-red-600 text-white border-red-700 shadow-lg";
+      } else {
+        buttonClass = "bg-slate-100 text-slate-500 border-slate-200";
+      }
+    }
 
-                return (
-                  <button
-                    key={index}
-                    onClick={() => !hasCheckedAnswer && setSelectedAnswer(answer)}
-                    disabled={hasCheckedAnswer}
-                    className={`w-full text-left p-4 rounded-2xl border-2 transition-all duration-200 font-medium ${buttonClass}`}
-                  >
-                    <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-black/10 mr-3 text-sm font-bold">
-                      {String.fromCharCode(65 + index)}
-                    </span>
-                    {answer}
-                  </button>
-                );
-              })}
-            </div>
+    return (
+      <button
+        key={index}
+        onClick={() => !hasCheckedAnswer && setSelectedAnswer(answer)}
+        disabled={hasCheckedAnswer}
+        className={`w-full flex items-center gap-4 p-5 rounded-2xl border-2 transition-all duration-200 text-left ${buttonClass}`}
+      >
+        <span className="shrink-0 inline-flex items-center justify-center w-10 h-10 rounded-full bg-black/10 text-sm font-bold">
+          {String.fromCharCode(65 + index)}
+        </span>
+
+        <span className="text-lg font-medium leading-6">
+          {answer}
+        </span>
+      </button>
+    );
+  })}
+</div>
 
             {hasCheckedAnswer && (
               <div
