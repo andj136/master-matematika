@@ -1,22 +1,13 @@
-"use client";
+import { Suspense } from "react";
+import TestPageContent from "./TestPageContent";
 
-import { Suspense, useEffect, useMemo, useState } from "react";
-import { useSearchParams } from "next/navigation";
-import { questions as baseQuestions } from "../../data/questions";
-
-type AreaStats = {
-  total: number;
-  correct: number;
-};
-
-type Question = {
-  question: string;
-  answers: string[];
-  correct: string;
-  area: string;
-  difficulty: string;
-};
-
+export default function TestPage() {
+  return (
+    <Suspense fallback={<div>Učitavanje testa...</div>}>
+      <TestPageContent />
+    </Suspense>
+  );
+}
 type AnswerReview = {
   question: string;
   selectedAnswer: string;
