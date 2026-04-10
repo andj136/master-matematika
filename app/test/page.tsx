@@ -669,159 +669,171 @@ function TestPageContent() {
     );
   }
 
-  const current = testQuestions[currentQuestion];
-  const isSelectedCorrect = selectedAnswer === current.correct;
-  const progress = ((currentQuestion + 1) / testQuestions.length) * 100;
+  const current = testQuestions[currentQuestion];
+const isSelectedCorrect = selectedAnswer === current.correct;
+const progress = ((currentQuestion + 1) / testQuestions.length) * 100;
 
-  return (
-    <main className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
-      <header className="sticky top-0 z-20 border-b border-white/40 bg-slate-950/85 backdrop-blur text-white">
-        <div className="max-w-5xl mx-auto px-4 py-4 flex items-center justify-between">
-          <a href="/" className="font-bold text-xl">
-            Matematički test sistem
-          </a>
-          <a
-            href="/"
-            className="px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 transition text-sm"
-          >
-            Početna
-          </a>
-        </div>
-      </header>
+return (
+  <main className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
+    <header className="sticky top-0 z-20 border-b border-white/40 bg-slate-950/85 backdrop-blur text-white">
+      <div className="max-w-5xl mx-auto px-4 py-4 flex items-center justify-between">
+        <a href="/" className="font-bold text-xl">
+          Matematički test sistem
+        </a>
 
-      <div className="px-4 py-10">
-        <div className="max-w-3xl mx-auto bg-white/90 backdrop-blur rounded-3xl shadow-2xl border border-white/60 overflow-hidden">
-          <div className="bg-gradient-to-r from-blue-600 to-indigo-600 px-8 py-6 text-white">
-            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-              <div>
-                <p className="text-sm opacity-90 mb-1">{modeLabel}</p>
-                <h1 className="text-3xl font-bold">
-                  Pitanje {currentQuestion + 1}/{testQuestions.length}
-                </h1>
-              </div>
+        <a
+          href="/"
+          className="px-5 py-2.5 rounded-full bg-white/10 hover:bg-white/20 transition text-sm font-semibold"
+        >
+          Početna
+        </a>
+      </div>
+    </header>
 
-              <div className="bg-white/20 px-4 py-2 rounded-2xl text-sm font-semibold w-fit">
-                ⏱ {formatTime(timeLeft)}
-              </div>
-            </div>
-          </div>
+    <div className="px-4 py-8 md:py-10">
+      <div className="max-w-4xl mx-auto">
+        <div className="bg-white/95 backdrop-blur rounded-[32px] shadow-2xl border border-white/60 overflow-hidden">
+          <div className="bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 px-6 md:px-8 py-6 md:py-8 text-white">
+            <div className="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
+              <div className="text-center md:text-left">
+                <p className="text-sm md:text-base text-white/85 mb-2 font-medium">
+                  {modeLabel}
+                </p>
+                <h1 className="text-3xl md:text-5xl font-bold leading-tight">
+                  Pitanje {currentQuestion + 1}/{testQuestions.length}
+                </h1>
+              </div>
 
-          <div className="p-8">
-            <div className="mb-6">
-              <div className="flex justify-between text-sm text-slate-600 mb-2">
-                <span>Napredak testa</span>
-                <span>{Math.round(progress)}%</span>
-              </div>
+              <div className="mx-auto md:mx-0 bg-white/20 px-5 py-3 rounded-2xl text-base md:text-lg font-semibold shadow-inner">
+                ⏱ {formatTime(timeLeft)}
+              </div>
+            </div>
+          </div>
 
-              <div className="w-full bg-slate-200 rounded-full h-3 overflow-hidden">
-                <div
-                  className="bg-gradient-to-r from-blue-500 to-indigo-600 h-3 rounded-full transition-all duration-500"
-                  style={{ width: `${progress}%` }}
-                ></div>
-              </div>
-            </div>
+          <div className="p-6 md:p-8 lg:p-10">
+            <div className="mb-8">
+              <div className="flex justify-between text-sm text-slate-600 mb-2">
+                <span>Napredak testa</span>
+                <span>{Math.round(progress)}%</span>
+              </div>
 
-            <div className="flex flex-wrap gap-3 mb-6">
-              <span className="px-3 py-1 rounded-full bg-indigo-100 text-indigo-700 text-sm font-semibold border border-indigo-200">
-                {current.area}
-              </span>
+              <div className="w-full bg-slate-200 rounded-full h-3 overflow-hidden">
+                <div
+                  className="bg-gradient-to-r from-blue-500 to-indigo-600 h-3 rounded-full transition-all duration-500"
+                  style={{ width: `${progress}%` }}
+                ></div>
+              </div>
+            </div>
 
-              <span
-                className={`px-3 py-1 rounded-full text-sm font-semibold border ${getDifficultyStyle(
-                  current.difficulty
-                )}`}
-              >
-                {current.difficulty}
-              </span>
-            </div>
+            <div className="flex flex-wrap justify-center md:justify-start gap-3 mb-6">
+              <span className="px-4 py-2 rounded-full bg-indigo-100 text-indigo-700 text-sm font-semibold border border-indigo-200">
+                {current.area}
+              </span>
 
-            <div className="bg-slate-50 border border-slate-100 rounded-2xl p-6 mb-6">
-              <p className="text-2xl font-semibold text-slate-900 leading-9">
-                {current.question}
-              </p>
-            </div>
+              <span
+                className={`px-4 py-2 rounded-full text-sm font-semibold border ${getDifficultyStyle(
+                  current.difficulty
+                )}`}
+              >
+                {current.difficulty}
+              </span>
+            </div>
 
-           <div className="grid gap-4 mb-6">
-  {current.answers.map((answer, index) => {
-    let buttonClass =
-      "bg-white text-slate-800 border-slate-200 hover:border-blue-400 hover:bg-blue-50";
+            <div className="bg-slate-50 border border-slate-100 rounded-3xl p-6 md:p-8 mb-8 shadow-sm">
+              <p className="text-2xl md:text-3xl font-bold text-slate-900 leading-snug text-center">
+                {current.question}
+              </p>
+            </div>
 
-    if (selectedAnswer === answer && !hasCheckedAnswer) {
-      buttonClass =
-        "bg-blue-600 text-white border-blue-700 shadow-lg";
-    }
+            <div className="grid gap-4 mb-8">
+              {current.answers.map((answer, index) => {
+                let buttonClass =
+                  "bg-white text-slate-800 border-slate-200 hover:border-blue-400 hover:bg-blue-50";
 
-    if (hasCheckedAnswer) {
-      if (answer === current.correct) {
-        buttonClass =
-          "bg-green-600 text-white border-green-700 shadow-lg";
-      } else if (answer === selectedAnswer && answer !== current.correct) {
-        buttonClass =
-          "bg-red-600 text-white border-red-700 shadow-lg";
-      } else {
-        buttonClass = "bg-slate-100 text-slate-500 border-slate-200";
-      }
-    }
+                if (selectedAnswer === answer && !hasCheckedAnswer) {
+                  buttonClass =
+                    "bg-blue-600 text-white border-blue-700 shadow-lg";
+                }
 
-    return (
-      <button
-        key={index}
-        onClick={() => !hasCheckedAnswer && setSelectedAnswer(answer)}
-        disabled={hasCheckedAnswer}
-        className={`w-full flex items-center gap-4 p-5 rounded-2xl border-2 transition-all duration-200 text-left ${buttonClass}`}
-      >
-        <span className="shrink-0 inline-flex items-center justify-center w-10 h-10 rounded-full bg-black/10 text-sm font-bold">
-          {String.fromCharCode(65 + index)}
-        </span>
+                if (hasCheckedAnswer) {
+                  if (answer === current.correct) {
+                    buttonClass =
+                      "bg-green-600 text-white border-green-700 shadow-lg";
+                  } else if (
+                    answer === selectedAnswer &&
+                    answer !== current.correct
+                  ) {
+                    buttonClass =
+                      "bg-red-600 text-white border-red-700 shadow-lg";
+                  } else {
+                    buttonClass =
+                      "bg-slate-100 text-slate-500 border-slate-200";
+                  }
+                }
 
-        <span className="flex-1 text-lg font-medium leading-6">
-          {answer}
-        </span>
-      </button>
-    );
-  })}
-</div>
-            {hasCheckedAnswer && (
-              <div
-                className={`mb-6 p-4 rounded-2xl font-semibold text-center border ${
-                  isSelectedCorrect
-                    ? "bg-green-50 text-green-700 border-green-200"
-                    : "bg-red-50 text-red-700 border-red-200"
-                }`}
-              >
-                {isSelectedCorrect
-                  ? "Tačan odgovor!"
-                  : `Netačno. Tačan odgovor je: ${current.correct}`}
-              </div>
-            )}
+                return (
+                  <button
+                    key={index}
+                    onClick={() =>
+                      !hasCheckedAnswer && setSelectedAnswer(answer)
+                    }
+                    disabled={hasCheckedAnswer}
+                    className={`w-full flex items-center gap-4 md:gap-5 p-5 md:p-6 rounded-3xl border-2 transition-all duration-200 text-left shadow-sm ${buttonClass}`}
+                  >
+                    <span className="shrink-0 inline-flex items-center justify-center w-11 h-11 rounded-full bg-black/10 text-base font-bold">
+                      {String.fromCharCode(65 + index)}
+                    </span>
 
-            {!hasCheckedAnswer ? (
-              <button
-                onClick={handleCheckAnswer}
-                disabled={selectedAnswer === null}
-                className={`w-full py-4 rounded-2xl font-semibold text-lg transition-all ${
-                  selectedAnswer === null
-                    ? "bg-slate-200 text-slate-500 cursor-not-allowed"
-                    : "bg-gradient-to-r from-emerald-500 to-green-600 text-white shadow-lg hover:scale-[1.01]"
-                }`}
-              >
-                Proveri odgovor
-              </button>
-            ) : (
-              <button
-                onClick={handleNextQuestion}
-                className="w-full py-4 rounded-2xl font-semibold text-lg transition-all bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg hover:scale-[1.01]"
-              >
-                {currentQuestion === testQuestions.length - 1
-                  ? "Završi test"
-                  : "Sledeće pitanje"}
-              </button>
-            )}
-          </div>
-        </div>
-      </div>
-    </main>
-  );
+                    <span className="flex-1 text-lg md:text-xl font-medium leading-7">
+                      {answer}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
+
+            {hasCheckedAnswer && (
+              <div
+                className={`mb-8 p-5 rounded-3xl font-semibold text-center border text-lg ${
+                  isSelectedCorrect
+                    ? "bg-green-50 text-green-700 border-green-200"
+                    : "bg-red-50 text-red-700 border-red-200"
+                }`}
+              >
+                {isSelectedCorrect
+                  ? "Tačan odgovor!"
+                  : `Netačno. Tačan odgovor je: ${current.correct}`}
+              </div>
+            )}
+
+            {!hasCheckedAnswer ? (
+              <button
+                onClick={handleCheckAnswer}
+                disabled={selectedAnswer === null}
+                className={`w-full py-4 md:py-5 rounded-3xl font-semibold text-lg md:text-xl transition-all ${
+                  selectedAnswer === null
+                    ? "bg-slate-200 text-slate-500 cursor-not-allowed"
+                    : "bg-gradient-to-r from-emerald-500 to-green-600 text-white shadow-lg hover:scale-[1.01]"
+                }`}
+              >
+                Proveri odgovor
+              </button>
+            ) : (
+              <button
+                onClick={handleNextQuestion}
+                className="w-full py-4 md:py-5 rounded-3xl font-semibold text-lg md:text-xl transition-all bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg hover:scale-[1.01]"
+              >
+                {currentQuestion === testQuestions.length - 1
+                  ? "Završi test"
+                  : "Sledeće pitanje"}
+              </button>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+);
 }
 export default function TestPage() {
   return (
