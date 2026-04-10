@@ -739,8 +739,8 @@ return (
               </span>
             </div>
 
-            <div className="bg-slate-50 border border-slate-100 rounded-3xl p-6 md:p-8 mb-8 shadow-sm">
-              <p className="text-2xl md:text-3xl font-bold text-slate-900 leading-snug text-center">
+            <div className="bg-slate-50 border border-slate-100 rounded-3xl p-5 md:p-6 mb-6 shadow-sm">
+              <p className="text-xl md:text-2xl font-bold text-slate-900 leading-snug text-center">
                 {current.question}
               </p>
             </div>
