@@ -369,6 +369,7 @@ function TestPageContent() {
 </div>
 
               <div className="bg-blue-50 rounded-2xl p-5 border border-blue-100 mb-8 shadow-sm">
+    <div className="space-y-6 text-slate-700 flex flex-col items-center text-center"></div>
                 <h2 className="text-xl font-semibold text-slate-900 mb-3">
                   Uputstvo
                 </h2>
