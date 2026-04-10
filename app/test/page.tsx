@@ -467,209 +467,105 @@ function TestPageContent() {
       setSavedHistory(true);
     }
 
-    return (
-      <main className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 print:bg-white">
-        <header className="sticky top-0 z-20 border-b border-white/40 bg-slate-950/85 backdrop-blur text-white print:hidden">
-          <div className="max-w-5xl mx-auto px-4 py-4 flex items-center justify-between">
-            <a href="/" className="font-bold text-xl">
-              Matematički test sistem
-            </a>
-            <a
-              href="/"
-              className="px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 transition text-sm"
-            >
-              Početna
-            </a>
-          </div>
-        </header>
+ 
+  return (
+    <main className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
+      <header className="sticky top-0 z-20 border-b border-white/40 bg-slate-950/85 backdrop-blur text-white">
+        <div className="max-w-5xl mx-auto px-4 py-4 flex items-center justify-between gap-4">
+          <a href="/" className="font-bold text-lg md:text-xl leading-tight">
+            Matematički test sistem
+          </a>
 
-        <div className="px-4 py-10">
-          <div className="max-w-5xl mx-auto bg-white/90 backdrop-blur rounded-3xl shadow-2xl border border-white/60 p-8 md:p-10 print:shadow-none print:border-none">
-            <div className="text-center mb-8">
-              <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-semibold mb-4">
-                {modeLabel}
-              </div>
+          <a
+            href="/"
+            className="shrink-0 px-5 py-2.5 rounded-full bg-white/10 hover:bg-white/20 transition text-sm font-semibold"
+          >
+            Početna
+          </a>
+        </div>
+      </header>
 
-              <h1 className="text-4xl font-bold text-slate-900 mb-3">
-                Test je završen
-              </h1>
+      <div className="px-4 py-6 md:py-10">
+        <div className="max-w-4xl mx-auto bg-white/90 backdrop-blur rounded-[28px] shadow-2xl border border-white/60 overflow-hidden">
+          <div className="bg-gradient-to-r from-blue-600 to-indigo-600 px-5 md:px-8 py-7 md:py-9 text-white text-center">
+            <div className="inline-flex px-4 py-2 rounded-full bg-white/20 text-sm font-semibold mb-4">
+              {modeLabel}
+            </div>
 
-              <p className="text-slate-600 text-lg">{gradeLabel}</p>
-            </div>
+            <h1 className="text-3xl md:text-4xl font-bold mb-3 leading-tight">
+              Priprema testa
+            </h1>
 
-            <div className="grid md:grid-cols-4 gap-4 mb-8">
-              <div className="bg-gradient-to-br from-blue-600 to-indigo-600 text-white rounded-2xl p-6 shadow-lg">
-                <p className="text-sm opacity-90 mb-2">Ukupan rezultat</p>
-                <p className="text-3xl font-bold">
-                  {score}/{testQuestions.length}
-                </p>
-              </div>
+            <p className="text-white/90 text-base md:text-lg max-w-2xl mx-auto leading-7">
+              Pregled osnovnih informacija pre početka rešavanja.
+            </p>
+          </div>
 
-              <div className="bg-white rounded-2xl p-6 shadow border border-slate-100">
-                <p className="text-sm text-slate-500 mb-2">Uspešnost</p>
-                <p className="text-3xl font-bold text-slate-900">{percentage}%</p>
-              </div>
+          <div className="p-5 md:p-8">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+              <div className="bg-slate-50 rounded-2xl p-5 border border-slate-100 text-center shadow-sm">
+                <p className="text-sm text-slate-500 mb-2">Broj pitanja</p>
+                <p className="text-2xl md:text-3xl font-bold text-slate-900">
+                  {testQuestions.length}
+                </p>
+              </div>
 
-              <div className="bg-white rounded-2xl p-6 shadow border border-slate-100">
-                <p className="text-sm text-slate-500 mb-2">Tačni odgovori</p>
-                <p className="text-3xl font-bold text-green-600">{correctCount}</p>
-              </div>
+              <div className="bg-slate-50 rounded-2xl p-5 border border-slate-100 text-center shadow-sm">
+                <p className="text-sm text-slate-500 mb-2">Vreme</p>
+                <p className="text-2xl md:text-3xl font-bold text-slate-900">
+                  {formatTime(timeLeft)}
+                </p>
+              </div>
 
-              <div className="bg-white rounded-2xl p-6 shadow border border-slate-100">
-                <p className="text-sm text-slate-500 mb-2">Netačni odgovori</p>
-                <p className="text-3xl font-bold text-red-600">{incorrectCount}</p>
-              </div>
-            </div>
+              <div className="bg-slate-50 rounded-2xl p-5 border border-slate-100 text-center shadow-sm">
+                <p className="text-sm text-slate-500 mb-2">Oblasti</p>
+                <p className="text-2xl md:text-3xl font-bold text-slate-900">
+                  {new Set(testQuestions.map((q) => q.area)).size}
+                </p>
+              </div>
 
-            <div className="bg-blue-50 rounded-2xl p-6 mb-8 border border-blue-100">
-              <h2 className="text-2xl font-semibold mb-3 text-slate-900">
-                Motivaciona poruka
-              </h2>
-              <p className="text-slate-700 text-lg leading-7">{motivation}</p>
-            </div>
+              <div className="bg-slate-50 rounded-2xl p-5 border border-slate-100 text-center shadow-sm">
+                <p className="text-sm text-slate-500 mb-2">Filter oblasti</p>
+                <p className="text-sm md:text-base font-bold text-slate-900 break-words">
+                  {areaFilter}
+                </p>
+              </div>
+            </div>
 
-            <div className="grid md:grid-cols-2 gap-4 mb-8">
-              <div className="bg-green-50 rounded-2xl p-6 border border-green-100 shadow-sm">
-                <h2 className="text-xl font-semibold mb-2 text-green-700">
-                  Najbolja oblast
-                </h2>
-                <p className="text-lg font-semibold text-slate-900">{bestArea.area}</p>
-                <p className="text-slate-600 mt-1">
-                  {bestArea.correct}/{bestArea.total} tačnih ({bestArea.percentage}%)
-                </p>
-              </div>
+            <div className="bg-blue-50 rounded-2xl p-5 border border-blue-100 mb-6 shadow-sm">
+              <h2 className="text-lg md:text-xl font-semibold text-slate-900 mb-3">
+                Uputstvo
+              </h2>
 
-              <div className="bg-red-50 rounded-2xl p-6 border border-red-100 shadow-sm">
-                <h2 className="text-xl font-semibold mb-2 text-red-700">
-                  Oblast za dodatno vežbanje
-                </h2>
-                <p className="text-lg font-semibold text-slate-900">{weakestArea.area}</p>
-                <p className="text-slate-600 mt-1">
-                  {weakestArea.correct}/{weakestArea.total} tačnih ({weakestArea.percentage}%)
-                </p>
-              </div>
-            </div>
+              <div className="space-y-2 text-slate-700 text-sm md:text-base leading-6">
+                <p>• Izaberi jedan odgovor za svako pitanje.</p>
+                <p>• Klikni na „Proveri odgovor“ da vidiš rezultat pitanja.</p>
+                <p>• Nakon toga prelaziš na sledeće pitanje.</p>
+                <p>• Po završetku dobijaš detaljan analitički izveštaj.</p>
+              </div>
+            </div>
 
-            <AreaChart data={areaResults} />
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <button
+                onClick={() => setStarted(true)}
+                className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-7 py-3 rounded-2xl font-semibold shadow-lg hover:scale-[1.02] transition"
+              >
+                Započni test
+              </button>
 
-            <div className="bg-slate-50 rounded-2xl p-6 mb-8 border border-slate-100 print:hidden">
-              <div className="flex items-center justify-between gap-4 mb-5">
-                <h2 className="text-2xl font-semibold text-slate-900">
-                  Pregled testa
-                </h2>
-
-                <button
-                  onClick={() => setShowReview((prev) => !prev)}
-                  className="bg-slate-200 hover:bg-slate-300 transition px-4 py-2 rounded-full text-sm font-semibold"
-                >
-                  {showReview ? "Sakrij pregled" : "Prikaži pregled"}
-                </button>
-              </div>
-
-              {showReview && (
-                <div className="space-y-4">
-                  {answerReview.map((item, index) => (
-                    <div
-                      key={index}
-                      className={`rounded-2xl p-5 border ${
-                        item.isCorrect
-                          ? "bg-green-50 border-green-100"
-                          : "bg-red-50 border-red-100"
-                      }`}
-                    >
-                      <div className="flex flex-wrap gap-2 mb-3">
-                        <span className="px-3 py-1 rounded-full bg-white text-slate-700 text-xs font-semibold border border-slate-200">
-                          Pitanje {index + 1}
-                        </span>
-                        <span className="px-3 py-1 rounded-full bg-white text-slate-700 text-xs font-semibold border border-slate-200">
-                          {item.area}
-                        </span>
-                        <span className="px-3 py-1 rounded-full bg-white text-slate-700 text-xs font-semibold border border-slate-200">
-                          {item.difficulty}
-                        </span>
-                      </div>
-
-                      <p className="font-semibold text-slate-900 mb-3">
-                        {item.question}
-                      </p>
-
-                      <p className="text-slate-700">
-                        Tvoj odgovor:{" "}
-                        <span className="font-semibold">{item.selectedAnswer}</span>
-                      </p>
-
-                      <p className="text-slate-700">
-                        Tačan odgovor:{" "}
-                        <span className="font-semibold">{item.correctAnswer}</span>
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
-
-            <div className="bg-blue-50 rounded-2xl p-6 mb-8 border border-blue-100">
-              <h2 className="text-2xl font-semibold mb-3 text-slate-900">
-                Preporuka sistema
-              </h2>
-              <p className="text-slate-700 text-lg leading-7">{recommendation}</p>
-            </div>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center print:hidden">
-              <button
-                onClick={() => window.location.reload()}
-                className="bg-gradient-to-r from-emerald-500 to-green-600 text-white px-6 py-3 rounded-2xl font-semibold shadow-lg hover:scale-[1.02] transition"
-              >
-                Pokušaj ponovo
-              </button>
-
-              {wrongQuestions.length > 0 && (
-                <a
-                  href="/retry"
-                  className="inline-flex items-center justify-center bg-gradient-to-r from-red-500 to-orange-500 text-white px-6 py-3 rounded-2xl font-semibold shadow-lg hover:scale-[1.02] transition"
-                >
-                  Vežbaj greške
-                </a>
-              )}
-
-              <button
-                onClick={() =>
-                  exportTxtReport({
-                    modeLabel,
-                    area: areaFilter,
-                    score,
-                    total: testQuestions.length,
-                    percentage,
-                    gradeLabel,
-                    bestArea: bestArea.area,
-                    weakestArea: weakestArea.area,
-                    recommendation,
-                  })
-                }
-                className="bg-slate-800 text-white px-6 py-3 rounded-2xl font-semibold shadow-lg hover:scale-[1.02] transition"
-              >
-                Preuzmi rezultat
-              </button>
-
-              <button
-                onClick={() => window.print()}
-                className="bg-violet-600 text-white px-6 py-3 rounded-2xl font-semibold shadow-lg hover:scale-[1.02] transition"
-              >
-                Sačuvaj kao PDF
-              </button>
-
-              <a
-                href="/"
-                className="inline-flex items-center justify-center bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-3 rounded-2xl font-semibold shadow-lg hover:scale-[1.02] transition"
-              >
-                Nazad na početnu
-              </a>
-            </div>
-          </div>
-        </div>
-      </main>
-    );
-  }
+              <a
+                href="/"
+                className="inline-flex items-center justify-center bg-slate-200 text-slate-800 px-7 py-3 rounded-2xl font-semibold hover:bg-slate-300 transition"
+              >
+                Nazad na početnu
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  );
+}
 
   const current = testQuestions[currentQuestion];
 const isSelectedCorrect = selectedAnswer === current.correct;
