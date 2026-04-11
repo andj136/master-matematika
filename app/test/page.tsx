@@ -119,11 +119,11 @@ function AreaChart({
         Grafikon uspeha po oblastima
       </h2>
 
-      <div className="flex items-end justify-center gap-4 h-[260px] overflow-x-auto">
+      <div className="flex items-end justify-center gap-4 h-[170px] overflow-x-auto">
         {data.map((item) => (
           <div
             key={item.area}
-            className="flex flex-col items-center justify-end min-w-[110px] h-full"
+            className="flex flex-col items-center mt-6"
           >
             <div className="text-sm font-semibold text-slate-700 mb-2">
               {item.percentage}%
