@@ -115,7 +115,7 @@ function AreaChart({
 
   return (
     <div className="bg-slate-50 rounded-2xl p-6 mb-8 border border-slate-100">
-      <h2 className="text-2xl font-semibold mb-5 text-slate-900">
+      <h2 className="text-2xl font-semibold mb-5 text-slate-900 text-center">
         Grafikon uspeha po oblastima
       </h2>
 
