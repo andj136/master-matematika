@@ -82,67 +82,69 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
       <header className="sticky top-0 z-20 border-b border-white/40 bg-slate-950/85 backdrop-blur text-white">
-        <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-          <a href="/" className="font-bold text-xl">
-            Matematički test sistem
+  <div className="max-w-6xl mx-auto px-4 py-4">
+    <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+      <a href="/" className="font-bold text-2xl md:text-xl leading-tight text-center md:text-left">
+        Matematički test sistem
+      </a>
+
+      <nav className="flex flex-wrap justify-center md:justify-end gap-3 text-sm">
+        <a
+          href="#rezimi"
+          className="px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 transition"
+        >
+          Režimi testa
+        </a>
+
+        <a
+          href="#funkcije"
+          className="px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 transition"
+        >
+          Funkcionalnosti
+        </a>
+
+        <a
+          href="/leaderboard"
+          className="px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 transition"
+        >
+          Rang lista
+        </a>
+
+        <a
+          href="/admin"
+          className="px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 transition"
+        >
+          Admin
+        </a>
+
+        {currentUser ? (
+          <>
+            <div className="px-4 py-2 rounded-full bg-blue-600 text-white font-semibold">
+              👤 {currentUser}
+            </div>
+
+            <button
+              onClick={() => {
+                localStorage.removeItem("currentUser");
+                window.location.reload();
+              }}
+              className="px-4 py-2 rounded-full bg-red-500 text-white font-semibold hover:bg-red-600 transition"
+            >
+              Odjava
+            </button>
+          </>
+        ) : (
+          <a
+            href="/login"
+            className="px-4 py-2 rounded-full bg-blue-600 text-white font-semibold hover:bg-blue-700 transition"
+          >
+            Prijava
           </a>
-
-          <nav className="flex items-center gap-2 text-sm overflow-x-auto whitespace-nowrap justify-end">
-            <a
-              href="#rezimi"
-              className="px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 transition"
-            >
-              Režimi testa
-            </a>
-
-            <a
-              href="#funkcije"
-              className="px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 transition"
-            >
-              Funkcionalnosti
-            </a>
-
-            <a
-              href="/leaderboard"
-              className="px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 transition"
-            >
-              Rang lista
-            </a>
-
-            <a
-              href="/admin"
-              className="px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 transition"
-            >
-              Admin
-            </a>
-
-            {currentUser ? (
-              <div className="flex items-center gap-3">
-                <div className="px-4 py-2 rounded-full bg-blue-600 text-white font-semibold">
-                  👤 {currentUser}
-                </div>
-
-                <button
-                  onClick={() => {
-                    localStorage.removeItem("currentUser");
-                    window.location.reload();
-                  }}
-                  className="px-4 py-2 rounded-full bg-red-500 text-white font-semibold hover:bg-red-600 transition"
-                >
-                  Odjava
-                </button>
-              </div>
-            ) : (
-              <a
-                href="/login"
-                className="px-4 py-2 rounded-full bg-blue-600 text-white font-semibold hover:bg-blue-700 transition"
-              >
-                Prijava
-              </a>
-            )}
-          </nav>
-        </div>
-      </header>
+        )}
+      </nav>
+    </div>
+  </div>
+</header>
 
       <div className="px-4 py-10">
         <div className="max-w-6xl mx-auto">
