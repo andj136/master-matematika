@@ -316,7 +316,7 @@ function TestPageContent() {
       correct: stats.correct,
       percentage: Math.round((stats.correct / stats.total) * 100),
     }));
-  if (!started) {
+  if (!started && !finished) {
     return (
       <main className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
   <header className="sticky top-0 z-20 backdrop-blur-xl bg-slate-950/85 border-b border-white/10 shadow-lg">
