@@ -326,16 +326,23 @@ function TestPageContent() {
 
         <div className="px-4 py-10">
           <div className="max-w-4xl mx-auto bg-white/90 backdrop-blur rounded-3xl shadow-2xl border border-white/60 overflow-hidden">
-            <div className="bg-gradient-to-r from-blue-600 to-indigo-600 px-8 py-8 text-white text-center">
-              <div className="inline-flex px-4 py-2 rounded-full bg-white/20 text-sm font-semibold mb-4">
-                {modeLabel}
-              </div>
+     <div className="bg-gradient-to-r from-blue-600 to-indigo-600 px-6 py-10 text-white">
+  <div className="flex flex-col items-center justify-center text-center">
+    
+    <div className="inline-flex px-5 py-2 rounded-full bg-white/20 text-sm font-semibold mb-4">
+      {modeLabel}
+    </div>
 
-              <h1 className="text-4xl font-bold mb-3">Priprema testa</h1>
-              <p className="text-white/90 text-lg">
-                Pregled osnovnih informacija pre početka rešavanja.
-              </p>
-            </div>
+    <h1 className="text-4xl font-bold mb-4">
+      Priprema testa
+    </h1>
+
+    <p className="text-lg text-white/90 max-w-2xl leading-relaxed">
+      Pregled osnovnih informacija pre početka rešavanja.
+    </p>
+
+  </div>
+</div>
 
             <div className="p-8">
              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
