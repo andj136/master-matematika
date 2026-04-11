@@ -119,7 +119,7 @@ function AreaChart({
         Grafikon uspeha po oblastima
       </h2>
 
-      <div className="flex items-end gap-4 h-[260px] overflow-x-auto">
+      <div className="flex items-end justify-center gap-4 h-[260px] overflow-x-auto">
         {data.map((item) => (
           <div
             key={item.area}
@@ -682,10 +682,6 @@ function TestPageContent() {
       </main>
     );
   }
-
- 
-
-   
 
 
 const current = testQuestions[currentQuestion];
