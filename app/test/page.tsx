@@ -306,7 +306,16 @@ function TestPageContent() {
       </main>
     );
   }
+ if (finished) {
+   
+    const percentage = Math.round((score / testQuestions.length) * 100);
 
+    const areaResults = Object.entries(areaStats).map(([area, stats]) => ({
+      area,
+      total: stats.total,
+      correct: stats.correct,
+      percentage: Math.round((stats.correct / stats.total) * 100),
+    }));
   if (!started) {
     return (
       <main className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
@@ -419,16 +428,7 @@ function TestPageContent() {
     );
   }
 
-  if (finished) {
-   
-    const percentage = Math.round((score / testQuestions.length) * 100);
-
-    const areaResults = Object.entries(areaStats).map(([area, stats]) => ({
-      area,
-      total: stats.total,
-      correct: stats.correct,
-      percentage: Math.round((stats.correct / stats.total) * 100),
-    }));
+ 
 
     const weakestArea = areaResults.reduce((prev, current) =>
       current.percentage < prev.percentage ? current : prev
