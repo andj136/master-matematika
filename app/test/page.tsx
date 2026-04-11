@@ -310,19 +310,27 @@ function TestPageContent() {
   if (!started) {
     return (
       <main className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
-        <header className="sticky top-0 z-20 border-b border-white/40 bg-slate-950/85 backdrop-blur text-white">
-          <div className="max-w-5xl mx-auto px-4 py-4 flex items-center justify-between">
-            <a href="/" className="font-bold text-xl">
-              Matematički test sistem
-            </a>
-            <a
-              href="/"
-              className="px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 transition text-sm"
-            >
-              Početna
-            </a>
-          </div>
-        </header>
+  <header className="sticky top-0 z-20 backdrop-blur-xl bg-slate-950/85 border-b border-white/10 shadow-lg">
+    <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+
+      <a
+        href="/"
+        className="text-white font-bold text-2xl tracking-tight hover:text-blue-300 transition"
+      >
+        Matematički test sistem
+      </a>
+
+      <a
+        href="/"
+        className="px-6 py-2.5 rounded-full bg-white/10 text-white font-medium
+        hover:bg-white/20 hover:scale-105 transition-all duration-300
+        border border-white/10 shadow-md"
+      >
+        Početna
+      </a>
+
+    </div>
+  </header>
 
         <div className="px-4 py-10">
           <div className="max-w-4xl mx-auto bg-white/90 backdrop-blur rounded-3xl shadow-2xl border border-white/60 overflow-hidden">
