@@ -83,7 +83,7 @@ function exportTxtReport(data: {
   recommendation: string;
 }) {
   const content = `
-Matematički test sistem
+Master matematika
 
 Režim testa: ${data.modeLabel}
 Oblast: ${data.area}
@@ -349,22 +349,30 @@ function TestPageContent() {
 
   if (!savedHistory && typeof window !== "undefined") {
     const newResult = {
-      id: Date.now().toString(),
-      score,
-      total: testQuestions.length,
-      percentage,
-      mode,
-      area: areaFilter,
-      bestArea: bestArea.area,
-      weakestArea: weakestArea.area,
-      gradeLabel,
-      date: new Date().toLocaleDateString("sr-RS"),
-    };
+  id: Date.now().toString(),
+  user: localStorage.getItem("currentUser") || "Gost",
+  score,
+  total: testQuestions.length,
+  percentage,
+  mode,
+  area: areaFilter,
+  bestArea: bestArea.area,
+  weakestArea: weakestArea.area,
+  gradeLabel,
+  date: new Date().toLocaleDateString("sr-RS"),
+};
+    const user = localStorage.getItem("currentUser");
 
-    const existing = localStorage.getItem("testHistory");
-    const parsed = existing ? JSON.parse(existing) : [];
-    const updated = [newResult, ...parsed].slice(0, 3);
-    localStorage.setItem("testHistory", JSON.stringify(updated));
+if (user) {
+  const existing = localStorage.getItem(`testHistory_${user}`);
+  const parsed = existing ? JSON.parse(existing) : [];
+  const updated = [newResult, ...parsed].slice(0, 3);
+
+  localStorage.setItem(
+    `testHistory_${user}`,
+    JSON.stringify(updated)
+  );
+}
     setSavedHistory(true);
   }
 
@@ -373,7 +381,7 @@ function TestPageContent() {
       <header className="sticky top-0 z-20 border-b border-white/40 bg-slate-950/85 backdrop-blur text-white print:hidden">
         <div className="max-w-5xl mx-auto px-4 py-4 flex items-center justify-between">
           <a href="/" className="font-bold text-xl">
-            Matematički test sistem
+            Master matematika
           </a>
           <a
             href="/"

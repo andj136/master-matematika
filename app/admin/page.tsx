@@ -28,9 +28,7 @@ export default function AdminPage() {
 
   useEffect(() => {
     const saved = localStorage.getItem("customQuestions");
-    if (saved) {
-      setCustomQuestions(JSON.parse(saved));
-    }
+    if (saved) setCustomQuestions(JSON.parse(saved));
   }, []);
 
   const handleSave = () => {
@@ -75,91 +73,96 @@ export default function AdminPage() {
   };
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
-      <header className="sticky top-0 z-20 border-b border-white/40 bg-slate-950/85 backdrop-blur text-white">
-        <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-          <a href="/" className="font-bold text-xl">
-            Matematički test sistem
+    <main className="min-h-screen bg-[radial-gradient(circle_at_top_left,#dbeafe,transparent_35%),radial-gradient(circle_at_top_right,#ede9fe,transparent_30%),linear-gradient(135deg,#f8fafc,#eef2ff,#dbeafe)] text-slate-900">
+      <header className="sticky top-0 z-20 border-b border-white/30 bg-slate-950/85 text-white backdrop-blur-xl">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4">
+          <a href="/" className="text-xl font-black tracking-tight">
+            Master<span className="text-blue-300">Matematika</span>
           </a>
 
           <a
             href="/"
-            className="px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 transition text-sm"
+            className="rounded-full bg-white/10 px-5 py-2 text-sm font-semibold transition hover:bg-white/20"
           >
             Početna
           </a>
         </div>
       </header>
 
-      <div className="px-4 py-10">
-        <div className="max-w-5xl mx-auto grid lg:grid-cols-2 gap-6">
-          <div className="bg-white rounded-3xl p-8 shadow-xl border border-slate-100">
-            <h1 className="text-3xl font-bold text-slate-900 mb-6">
-              Admin unos pitanja
-            </h1>
+      <div className="mx-auto max-w-7xl px-5 py-10">
+        <div className="mb-10">
+          <div className="mb-4 inline-flex rounded-full border border-blue-200 bg-white/70 px-4 py-2 text-sm font-bold text-blue-700 shadow-sm backdrop-blur">
+            Admin panel
+          </div>
 
-            <div className="space-y-4">
+          <h1 className="text-5xl font-black tracking-tight">
+            Unos i upravljanje pitanjima
+          </h1>
+
+          <p className="mt-3 max-w-2xl text-slate-600">
+            Dodaj nova pitanja u bazu za testiranje. Pitanja se čuvaju lokalno u browseru
+            i odmah se uključuju u testove.
+          </p>
+        </div>
+
+        <div className="grid gap-6 lg:grid-cols-[1fr_0.9fr]">
+          <section className="rounded-[36px] border border-white/70 bg-white/85 p-8 shadow-2xl backdrop-blur-xl">
+            <div className="mb-6 flex items-center justify-between">
+              <div>
+                <p className="text-sm font-bold text-blue-600">Novo pitanje</p>
+                <h2 className="text-3xl font-black">Forma za unos</h2>
+              </div>
+
+              <div className="rounded-3xl bg-blue-100 px-5 py-4 text-3xl">
+                🛠️
+              </div>
+            </div>
+
+            <div className="space-y-5">
               <textarea
                 value={form.question}
                 onChange={(e) =>
                   setForm((prev) => ({ ...prev, question: e.target.value }))
                 }
-                placeholder="Unesi pitanje"
-                className="w-full border border-slate-200 rounded-2xl p-4 min-h-[120px]"
+                placeholder="Unesi tekst pitanja..."
+                className="min-h-[130px] w-full rounded-3xl border border-slate-200 bg-white p-5 font-semibold outline-none transition focus:border-blue-400 focus:ring-4 focus:ring-blue-100"
               />
 
-              <input
-                value={form.answerA}
-                onChange={(e) =>
-                  setForm((prev) => ({ ...prev, answerA: e.target.value }))
-                }
-                placeholder="Odgovor A"
-                className="w-full border border-slate-200 rounded-2xl p-4"
-              />
-
-              <input
-                value={form.answerB}
-                onChange={(e) =>
-                  setForm((prev) => ({ ...prev, answerB: e.target.value }))
-                }
-                placeholder="Odgovor B"
-                className="w-full border border-slate-200 rounded-2xl p-4"
-              />
-
-              <input
-                value={form.answerC}
-                onChange={(e) =>
-                  setForm((prev) => ({ ...prev, answerC: e.target.value }))
-                }
-                placeholder="Odgovor C"
-                className="w-full border border-slate-200 rounded-2xl p-4"
-              />
-
-              <input
-                value={form.answerD}
-                onChange={(e) =>
-                  setForm((prev) => ({ ...prev, answerD: e.target.value }))
-                }
-                placeholder="Odgovor D"
-                className="w-full border border-slate-200 rounded-2xl p-4"
-              />
+              <div className="grid gap-4 md:grid-cols-2">
+                {[
+                  ["answerA", "Odgovor A"],
+                  ["answerB", "Odgovor B"],
+                  ["answerC", "Odgovor C"],
+                  ["answerD", "Odgovor D"],
+                ].map(([key, label]) => (
+                  <input
+                    key={key}
+                    value={form[key as keyof typeof form]}
+                    onChange={(e) =>
+                      setForm((prev) => ({ ...prev, [key]: e.target.value }))
+                    }
+                    placeholder={label}
+                    className="w-full rounded-3xl border border-slate-200 bg-white p-5 font-semibold outline-none transition focus:border-blue-400 focus:ring-4 focus:ring-blue-100"
+                  />
+                ))}
+              </div>
 
               <input
                 value={form.correct}
                 onChange={(e) =>
                   setForm((prev) => ({ ...prev, correct: e.target.value }))
                 }
-                placeholder="Tačan odgovor"
-                className="w-full border border-slate-200 rounded-2xl p-4"
+                placeholder="Tačan odgovor mora biti isti kao jedan od ponuđenih"
+                className="w-full rounded-3xl border border-slate-200 bg-emerald-50 p-5 font-semibold outline-none transition focus:border-emerald-400 focus:ring-4 focus:ring-emerald-100"
               />
 
-              <div className="grid md:grid-cols-2 gap-4">
+              <div className="grid gap-4 md:grid-cols-2">
                 <select
                   value={form.area}
                   onChange={(e) =>
                     setForm((prev) => ({ ...prev, area: e.target.value }))
                   }
-                  className="w-full border border-slate-200 rounded-2xl p-4"
+                  className="w-full rounded-3xl border border-slate-200 bg-white p-5 font-semibold outline-none"
                 >
                   <option>Brojevi i operacije</option>
                   <option>Algebarski izrazi i jednačine</option>
@@ -173,7 +176,7 @@ export default function AdminPage() {
                   onChange={(e) =>
                     setForm((prev) => ({ ...prev, difficulty: e.target.value }))
                   }
-                  className="w-full border border-slate-200 rounded-2xl p-4"
+                  className="w-full rounded-3xl border border-slate-200 bg-white p-5 font-semibold outline-none"
                 >
                   <option>Lako</option>
                   <option>Srednje</option>
@@ -183,61 +186,90 @@ export default function AdminPage() {
 
               <button
                 onClick={handleSave}
-                className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-4 rounded-2xl font-semibold"
+                className="w-full rounded-3xl bg-gradient-to-r from-blue-600 to-indigo-600 py-5 text-lg font-black text-white shadow-xl shadow-blue-500/25 transition hover:-translate-y-1 hover:shadow-2xl"
               >
                 Sačuvaj pitanje
               </button>
 
               {message && (
-                <div className="bg-blue-50 border border-blue-100 text-blue-700 rounded-2xl p-4">
+                <div
+                  className={`rounded-3xl border p-5 font-bold ${
+                    message.includes("uspešno")
+                      ? "border-emerald-100 bg-emerald-50 text-emerald-700"
+                      : "border-red-100 bg-red-50 text-red-700"
+                  }`}
+                >
                   {message}
                 </div>
               )}
             </div>
-          </div>
+          </section>
 
-          <div className="bg-white rounded-3xl p-8 shadow-xl border border-slate-100">
-            <h2 className="text-2xl font-bold text-slate-900 mb-6">
-              Dodata pitanja ({customQuestions.length})
-            </h2>
+          <section className="rounded-[36px] border border-white/70 bg-white/85 p-8 shadow-2xl backdrop-blur-xl">
+            <div className="mb-6 flex items-center justify-between gap-4">
+              <div>
+                <p className="text-sm font-bold text-blue-600">Baza pitanja</p>
+                <h2 className="text-3xl font-black">
+                  Dodata pitanja ({customQuestions.length})
+                </h2>
+              </div>
 
-            <div className="space-y-4 max-h-[700px] overflow-auto pr-2">
+              <div className="rounded-3xl bg-violet-100 px-5 py-4 text-3xl">
+                📚
+              </div>
+            </div>
+
+            <div className="max-h-[720px] space-y-4 overflow-auto pr-2">
               {customQuestions.length === 0 && (
-                <p className="text-slate-500">Još nema dodatih pitanja.</p>
+                <div className="rounded-3xl bg-slate-50 p-8 text-center">
+                  <div className="mb-3 text-5xl">📝</div>
+                  <p className="font-bold text-slate-700">
+                    Još nema dodatih pitanja.
+                  </p>
+                  <p className="mt-2 text-sm text-slate-500">
+                    Kada dodaš pitanje, pojaviće se ovde.
+                  </p>
+                </div>
               )}
 
               {customQuestions.map((item, index) => (
                 <div
                   key={index}
-                  className="border border-slate-200 rounded-2xl p-5"
+                  className="rounded-3xl border border-slate-100 bg-slate-50 p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
                 >
-                  <div className="flex flex-wrap gap-2 mb-3">
-                    <span className="px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-semibold">
+                  <div className="mb-3 flex flex-wrap gap-2">
+                    <span className="rounded-full bg-blue-100 px-3 py-1 text-xs font-bold text-blue-700">
                       {item.area}
                     </span>
-                    <span className="px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-semibold">
+
+                    <span className="rounded-full bg-violet-100 px-3 py-1 text-xs font-bold text-violet-700">
                       {item.difficulty}
                     </span>
                   </div>
 
-                  <p className="font-semibold text-slate-900 mb-3">
+                  <p className="mb-4 font-bold leading-7 text-slate-900">
                     {item.question}
                   </p>
 
-                  <p className="text-slate-600 text-sm mb-1">
-                    Tačan odgovor: <span className="font-semibold">{item.correct}</span>
-                  </p>
+                  <div className="mb-4 rounded-2xl bg-white p-4 text-sm text-slate-600">
+                    <p>
+                      Tačan odgovor:{" "}
+                      <span className="font-black text-emerald-700">
+                        {item.correct}
+                      </span>
+                    </p>
+                  </div>
 
                   <button
                     onClick={() => handleDelete(index)}
-                    className="mt-3 bg-red-100 text-red-700 px-4 py-2 rounded-full text-sm font-semibold"
+                    className="rounded-full bg-red-100 px-4 py-2 text-sm font-bold text-red-700 transition hover:bg-red-200"
                   >
-                    Obriši
+                    Obriši pitanje
                   </button>
                 </div>
               ))}
             </div>
-          </div>
+          </section>
         </div>
       </div>
     </main>

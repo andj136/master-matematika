@@ -1,7 +1,7 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "Matematički test sistem",
+  title: "Master matematika",
   description: "Web aplikacija za proveru znanja iz matematike",
 };
 
