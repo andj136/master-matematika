@@ -401,7 +401,7 @@ export default function Home() {
               tag: "Napredna verzija",
               title: "Napredni test",
               icon: "🚀",
-              desc: "Zahtevniji zadaci za učenike koji žele viši nivo.",
+              desc: "Zahtevniji zadaci za učenike koji žele viši nivo i ozbiljniju proveru znanja.",
               details: ["15 pitanja", "20 minuta", "teži nivo"],
             },
           ].map((card) => (
@@ -429,10 +429,16 @@ export default function Home() {
               <p className="mb-6 leading-7 text-slate-600">{card.desc}</p>
 
               <div className="space-y-3 text-sm font-semibold text-slate-500">
-                {card.details.map((detail) => (
-                  <p key={detail}>✓ {detail}</p>
-                ))}
-              </div>
+  {card.details.map((detail) => (
+    <p key={detail}>✓ {detail}</p>
+  ))}
+</div>
+
+<div className="mt-8">
+  <div className="w-full rounded-2xl bg-gradient-to-r from-blue-600 to-violet-600 py-3 text-center font-bold text-white shadow-lg transition duration-300 group-hover:-translate-y-1 group-hover:shadow-xl">
+    🚀 Započni test
+  </div>
+</div>
             </a>
           ))}
         </div>
