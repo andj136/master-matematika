@@ -220,13 +220,13 @@ export default function Home() {
       📘 Edukativna web platforma
     </div>
 
-    <h1 className="mb-4 text-4xl font-black leading-tight tracking-tight text-slate-900 md:text-5xl lg:text-6xl">
-      Uči. Vežbaj.
-      <br />
-      <span className="bg-gradient-to-r from-blue-600 to-violet-600 bg-clip-text text-transparent">
-        Napreduj.
-      </span>
-    </h1>
+   <h1 className="mb-4 text-4xl font-black leading-tight tracking-tight md:text-5xl lg:text-6xl">
+  Tvoja digitalna učionica
+  <br />
+  <span className="bg-gradient-to-r from-blue-600 to-violet-600 bg-clip-text text-transparent">
+    matematike.
+  </span>
+</h1>
 
     <p className="mx-auto mb-6 max-w-xl text-base leading-7 text-slate-600 md:mx-0 md:text-lg md:leading-8">
       Rešavaj interaktivne testove, prati svoj napredak i unapredi znanje iz
