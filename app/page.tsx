@@ -105,45 +105,65 @@ export default function Home() {
         {menuOpen ? "✕" : "☰"}
       </button>
 
-      <nav className="hidden items-center gap-2 rounded-full bg-white/5 p-2 md:flex">
-        <a href="#testovi" className="rounded-full px-5 py-2 font-semibold hover:bg-white/10">
-          Testovi
-        </a>
-        <a href="/about" className="rounded-full px-5 py-2 font-semibold hover:bg-white/10">
-          O projektu
-        </a>
-        <a href="/leaderboard" className="rounded-full px-5 py-2 font-semibold hover:bg-white/10">
-          Rang lista
-        </a>
+     <nav className="hidden items-center gap-2 rounded-full border border-white/10 bg-white/5 p-2 backdrop-blur md:flex">
 
-        {currentRole === "admin" && (
-          <a href="/admin" className="rounded-full bg-amber-500 px-5 py-2 font-bold">
-            Admin
-          </a>
-        )}
+  {currentUser ? (
+    <>
+      <span className="rounded-full bg-white/10 px-5 py-2 font-semibold">
+        👤 {currentUser}
+      </span>
 
-        {currentUser ? (
-          <>
-            <span className="rounded-full bg-white/10 px-5 py-2 font-semibold">
-              👤 {currentUser}
-            </span>
-            <button
-              onClick={() => {
-                localStorage.removeItem("currentUser");
-                localStorage.removeItem("currentRole");
-                window.location.reload();
-              }}
-              className="rounded-full bg-red-500 px-5 py-2 font-bold"
-            >
-              Odjava
-            </button>
-          </>
-        ) : (
-          <a href="/login" className="rounded-full bg-blue-600 px-6 py-2 font-bold">
-            Prijava
-          </a>
-        )}
-      </nav>
+      <button
+        onClick={() => {
+          localStorage.removeItem("currentUser");
+          localStorage.removeItem("currentRole");
+          window.location.reload();
+        }}
+        className="rounded-full bg-red-500 px-5 py-2 font-bold text-white transition hover:bg-red-600"
+      >
+        Odjava
+      </button>
+    </>
+  ) : (
+    <a
+      href="/login"
+      className="rounded-full bg-gradient-to-r from-blue-600 to-violet-600 px-6 py-2 font-bold text-white shadow-lg transition hover:scale-105"
+    >
+      Prijava
+    </a>
+  )}
+
+  <a
+    href="#testovi"
+    className="rounded-full px-5 py-2 font-semibold transition hover:bg-white/10 hover:text-blue-300"
+  >
+    Testovi
+  </a>
+
+  <a
+    href="/leaderboard"
+    className="rounded-full px-5 py-2 font-semibold transition hover:bg-white/10 hover:text-blue-300"
+  >
+    Rang lista
+  </a>
+
+  <a
+    href="/about"
+    className="rounded-full px-5 py-2 font-semibold transition hover:bg-white/10 hover:text-blue-300"
+  >
+    O projektu
+  </a>
+
+  {currentRole === "admin" && (
+    <a
+      href="/admin"
+      className="rounded-full bg-amber-500 px-5 py-2 font-bold text-white shadow-lg transition hover:bg-amber-600"
+    >
+      Admin
+    </a>
+  )}
+
+</nav>
     </div>
 
     {menuOpen && (
