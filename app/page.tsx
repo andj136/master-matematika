@@ -214,113 +214,113 @@ export default function Home() {
   </div>
 </header>
 
-      <section className="mx-auto grid max-w-7xl gap-10 px-5 py-14 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:py-20">
-        <div>
-          <div className="mb-6 inline-flex rounded-full border border-blue-200 bg-white/70 px-4 py-2 text-sm font-bold text-blue-700 shadow-sm backdrop-blur">
-            📘 Edukativna web platforma
+      <section className="mx-auto grid max-w-7xl gap-8 px-5 py-8 md:py-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:py-20">
+  <div className="text-center md:text-left">
+    <div className="mb-5 inline-flex rounded-full border border-blue-200 bg-white/70 px-4 py-2 text-sm font-bold text-blue-700 shadow-sm backdrop-blur">
+      📘 Edukativna web platforma
+    </div>
+
+    <h1 className="mb-4 text-4xl font-black leading-tight tracking-tight text-slate-900 md:text-5xl lg:text-6xl">
+      Uči. Vežbaj.
+      <br />
+      <span className="bg-gradient-to-r from-blue-600 to-violet-600 bg-clip-text text-transparent">
+        Napreduj.
+      </span>
+    </h1>
+
+    <p className="mx-auto mb-6 max-w-xl text-base leading-7 text-slate-600 md:mx-0 md:text-lg md:leading-8">
+      Rešavaj interaktivne testove, prati svoj napredak i unapredi znanje iz
+      matematike kroz jasnu analizu rezultata.
+    </p>
+
+    <div className="flex flex-col gap-3 sm:flex-row sm:justify-center md:justify-start">
+      <a
+        href={currentUser ? "#testovi" : "/login"}
+        className="rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 px-6 py-3 text-center font-bold text-white shadow-xl shadow-blue-500/25 transition hover:-translate-y-1 hover:shadow-2xl md:px-8 md:py-4"
+      >
+        ▶️ {currentUser ? "Započni test" : "Prijava"}
+      </a>
+
+      <a
+        href="/leaderboard"
+        className="rounded-2xl border border-slate-200 bg-white/80 px-6 py-3 text-center font-bold text-slate-800 shadow-sm backdrop-blur transition hover:-translate-y-1 hover:shadow-lg md:px-8 md:py-4"
+      >
+        🏆 Rang lista
+      </a>
+    </div>
+  </div>
+
+  <div className="relative">
+    <div className="absolute -left-8 -top-8 h-32 w-32 rounded-full bg-blue-400/20 blur-3xl" />
+    <div className="absolute -bottom-8 -right-8 h-40 w-40 rounded-full bg-violet-400/20 blur-3xl" />
+
+    {currentUser ? (
+      <div className="relative rounded-[32px] border border-white/70 bg-white/90 p-6 shadow-[0_25px_70px_rgba(15,23,42,0.16)] backdrop-blur-2xl md:rounded-[40px] md:p-7">
+        <div className="mb-5 flex items-center justify-between">
+          <div>
+            <p className="text-sm font-semibold text-slate-500">
+              Dashboard učenika
+            </p>
+
+            <h2 className="text-2xl font-black">
+              Zdravo, {currentUser} 👋
+            </h2>
           </div>
 
-          <h1 className="mb-4 text-4xl font-black leading-tight tracking-tight text-slate-900 md:text-6xl">
-  Uči.
-  <br />
-  Vežbaj.
-  <br />
-  <span className="bg-gradient-to-r from-blue-600 to-violet-600 bg-clip-text text-transparent">
-    Napreduj.
-  </span>
-</h1>
+          <div className="rounded-2xl bg-blue-100 px-4 py-3 text-2xl">
+            📊
+          </div>
+        </div>
 
-          <p className="mb-8 max-w-2xl text-lg leading-8 text-slate-600">
-            Web aplikacija namenjena proveri znanja iz matematike kroz
-            interaktivne testove, automatsku analizu rezultata i praćenje
-            napretka učenika.
+        <div className="grid grid-cols-2 gap-4">
+          <div className="rounded-3xl border border-white/70 bg-white/80 p-5 shadow-sm">
+            <p className="text-sm text-slate-500">Testova</p>
+            <p className="text-3xl font-black">{stats.totalTests}</p>
+          </div>
+
+          <div className="rounded-3xl bg-blue-50 p-5">
+            <p className="text-sm text-slate-500">Najbolji rezultat</p>
+            <p className="text-3xl font-black">{stats.bestResult}%</p>
+          </div>
+
+          <div className="rounded-3xl bg-violet-50 p-5">
+            <p className="text-sm text-slate-500">Poslednji rezultat</p>
+            <p className="text-3xl font-black">{stats.lastResult}%</p>
+          </div>
+
+          <div className="rounded-3xl bg-emerald-50 p-5">
+            <p className="text-sm text-slate-500">Dodata pitanja</p>
+            <p className="text-3xl font-black">{customQuestionsCount}</p>
+          </div>
+        </div>
+      </div>
+    ) : (
+      <div className="relative rounded-[32px] border border-white/70 bg-white/90 p-7 shadow-[0_25px_70px_rgba(15,23,42,0.16)] backdrop-blur-xl md:rounded-[40px] md:p-10">
+        <div className="flex min-h-[270px] flex-col items-center justify-center text-center md:min-h-[370px]">
+          <div className="mb-5 flex h-20 w-20 items-center justify-center rounded-3xl bg-gradient-to-br from-blue-100 to-violet-100 text-4xl md:h-24 md:w-24 md:text-5xl">
+            👋
+          </div>
+
+          <h2 className="text-3xl font-black text-slate-900 md:text-4xl">
+            Dobrodošli!
+          </h2>
+
+          <p className="mt-4 max-w-md text-base leading-7 text-slate-600 md:text-lg md:leading-8">
+            Prijavite se ili kreirajte nalog kako biste pratili rezultate,
+            napredak i preporuke za vežbanje.
           </p>
-          <div className="flex flex-col gap-4 sm:flex-row"></div>
 
-          <div className="flex flex-col gap-4 sm:flex-row">
-            
-
-            <a
-              href="/leaderboard"
-              className="rounded-2xl border border-slate-200 bg-white/80 px-8 py-4 text-center font-bold text-slate-800 shadow-sm backdrop-blur transition hover:-translate-y-1 hover:shadow-lg"
-            >
-              🏆 Pogledaj rang listu
-            </a>
-          </div>
+          <a
+            href="/login"
+            className="mt-7 rounded-2xl bg-gradient-to-r from-blue-600 to-violet-600 px-7 py-3 font-bold text-white shadow-xl transition hover:-translate-y-1 md:px-8 md:py-4"
+          >
+            Prijava / Registracija
+          </a>
         </div>
-
-        <div className="relative">
-          <div className="absolute -left-8 -top-8 h-32 w-32 rounded-full bg-blue-400/20 blur-3xl" />
-          <div className="absolute -bottom-8 -right-8 h-40 w-40 rounded-full bg-violet-400/20 blur-3xl" />
-
-          {currentUser ? (
-            <div className="relative rounded-[40px] border border-white/70 bg-white/90 p-7 shadow-[0_30px_80px_rgba(15,23,42,0.18)] backdrop-blur-2xl transition hover:-translate-y-1 hover:shadow-[0_35px_90px_rgba(37,99,235,0.22)]">
-              <div className="mb-5 flex items-center justify-between">
-                <div>
-                  <p className="text-sm font-semibold text-slate-500">
-                    Dashboard učenika
-                  </p>
-
-                  <h2 className="text-2xl font-black">
-                    Zdravo, {currentUser} 👋
-                  </h2>
-                </div>
-
-                <div className="rounded-2xl bg-blue-100 px-4 py-3 text-2xl">
-                  📊
-                </div>
-              </div>
-
-              <div className="grid grid-cols-2 gap-4">
-                <div className="rounded-3xl border border-white/70 bg-white/80 p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
-                  <p className="text-sm text-slate-500">Testova</p>
-                  <p className="text-3xl font-black">{stats.totalTests}</p>
-                </div>
-
-                <div className="rounded-3xl bg-blue-50 p-5">
-                  <p className="text-sm text-slate-500">Najbolji rezultat</p>
-                  <p className="text-3xl font-black">{stats.bestResult}%</p>
-                </div>
-
-                <div className="rounded-3xl bg-violet-50 p-5">
-                  <p className="text-sm text-slate-500">Poslednji rezultat</p>
-                  <p className="text-3xl font-black">{stats.lastResult}%</p>
-                </div>
-
-                <div className="rounded-3xl bg-emerald-50 p-5">
-                  <p className="text-sm text-slate-500">Dodata pitanja</p>
-                  <p className="text-3xl font-black">{customQuestionsCount}</p>
-                </div>
-              </div>
-            </div>
-          ) : (
-            <div className="relative rounded-[40px] border border-white/70 bg-white/90 p-10 shadow-[0_30px_80px_rgba(15,23,42,0.18)] backdrop-blur-xl">
-              <div className="flex min-h-[370px] flex-col items-center justify-center text-center">
-                <div className="mb-6 flex h-24 w-24 items-center justify-center rounded-3xl bg-gradient-to-br from-blue-100 to-violet-100 text-5xl">
-                  👋
-                </div>
-
-                <h2 className="text-4xl font-black text-slate-900">
-                  Dobrodošli!
-                </h2>
-
-                <p className="mt-5 max-w-md text-lg leading-8 text-slate-600">
-                  Prijavite se ili kreirajte korisnički nalog kako biste
-                  rešavali testove, pratili svoj napredak i dobijali preporuke
-                  za dalje vežbanje.
-                </p>
-
-                <a
-                  href="/login"
-                  className="mt-8 rounded-2xl bg-gradient-to-r from-blue-600 to-violet-600 px-8 py-4 font-bold text-white shadow-xl transition hover:-translate-y-1"
-                >
-                  Prijava / Registracija
-                </a>
-              </div>
-            </div>
-          )}
-        </div>
-      </section>
+      </div>
+    )}
+  </div>
+</section>
 
       {currentUser && history.length > 0 && (
         <section className="mx-auto max-w-7xl px-5 pb-16">
