@@ -166,41 +166,50 @@ export default function Home() {
 </nav>
     </div>
 
-    {menuOpen && (
-      <nav className="mt-4 grid gap-2 rounded-3xl border border-white/10 bg-white/10 p-3 md:hidden">
-        <a href="#testovi" className="rounded-2xl px-4 py-3 font-semibold hover:bg-white/10">
-          Testovi
-        </a>
-        <a href="/about" className="rounded-2xl px-4 py-3 font-semibold hover:bg-white/10">
-          O projektu
-        </a>
-        <a href="/leaderboard" className="rounded-2xl px-4 py-3 font-semibold hover:bg-white/10">
-          Rang lista
-        </a>
+   {menuOpen && (
+  <nav className="mt-4 grid gap-2 rounded-3xl border border-white/10 bg-white/10 p-3 md:hidden">
+    {currentUser ? (
+      <>
+        <div className="rounded-2xl bg-white/10 px-4 py-3 font-semibold">
+          👤 {currentUser}
+        </div>
 
-        {currentRole === "admin" && (
-          <a href="/admin" className="rounded-2xl bg-amber-500 px-4 py-3 font-bold">
-            Admin
-          </a>
-        )}
+        <button
+          onClick={() => {
+            localStorage.removeItem("currentUser");
+            localStorage.removeItem("currentRole");
+            window.location.reload();
+          }}
+          className="rounded-2xl bg-red-500 px-4 py-3 text-left font-bold"
+        >
+          Odjava
+        </button>
+      </>
+    ) : (
+      <a href="/login" className="rounded-2xl bg-blue-600 px-4 py-3 font-bold">
+        Prijava
+      </a>
+    )}
 
-        {currentUser ? (
-          <button
-            onClick={() => {
-              localStorage.removeItem("currentUser");
-              localStorage.removeItem("currentRole");
-              window.location.reload();
-            }}
-            className="rounded-2xl bg-red-500 px-4 py-3 text-left font-bold"
-          >
-            Odjava
-          </button>
-        ) : (
-          <a href="/login" className="rounded-2xl bg-blue-600 px-4 py-3 font-bold">
-            Prijava
-          </a>
-        )}
-      </nav>
+    <a href="#testovi" className="rounded-2xl px-4 py-3 font-semibold hover:bg-white/10">
+      Testovi
+    </a>
+
+    <a href="/leaderboard" className="rounded-2xl px-4 py-3 font-semibold hover:bg-white/10">
+      Rang lista
+    </a>
+
+    <a href="/about" className="rounded-2xl px-4 py-3 font-semibold hover:bg-white/10">
+      O projektu
+    </a>
+
+    {currentRole === "admin" && (
+      <a href="/admin" className="rounded-2xl bg-amber-500 px-4 py-3 font-bold">
+        Admin
+      </a>
+    )}
+  </nav>
+
     )}
   </div>
 </header>
