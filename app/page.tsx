@@ -30,6 +30,7 @@ export default function Home() {
   const [customQuestionsCount, setCustomQuestionsCount] = useState(0);
   const [currentUser, setCurrentUser] = useState("");
   const [currentRole, setCurrentRole] = useState("");
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const user = localStorage.getItem("currentUser");
@@ -90,54 +91,97 @@ export default function Home() {
 
   return (
     <main className="min-h-screen overflow-hidden bg-[radial-gradient(circle_at_top_left,#dbeafe,transparent_35%),radial-gradient(circle_at_top_right,#ede9fe,transparent_30%),linear-gradient(135deg,#f8fafc,#eef2ff,#dbeafe)] text-slate-900">
-     <header className="sticky top-0 z-30 border-b border-white/30 bg-slate-950/85 text-white backdrop-blur-xl">
-  <div className="mx-auto flex max-w-7xl flex-col gap-3 px-5 py-4 md:flex-row md:items-center md:justify-between">
-    <a href="/" className="text-xl font-black tracking-tight text-center md:text-left">
-      Master<span className="text-blue-300">Matematika</span>
-    </a>
-
-    <nav className="flex flex-wrap items-center justify-center gap-2 text-sm">
-      <a href="#testovi" className="rounded-full bg-white/10 px-4 py-2 font-semibold hover:bg-white/20">
-        Testovi
+     <header className="sticky top-0 z-30 border-b border-white/30 bg-slate-950/90 text-white backdrop-blur-xl">
+  <div className="mx-auto max-w-7xl px-5 py-4">
+    <div className="flex items-center justify-between">
+      <a href="/" className="text-xl font-black tracking-tight">
+        Master<span className="text-blue-300">Matematika</span>
       </a>
 
-      <a href="/about" className="rounded-full bg-white/10 px-4 py-2 font-semibold hover:bg-white/20">
-        O projektu
-      </a>
+      <button
+        onClick={() => setMenuOpen((prev) => !prev)}
+        className="rounded-2xl bg-white/10 px-4 py-2 text-xl font-bold md:hidden"
+      >
+        {menuOpen ? "✕" : "☰"}
+      </button>
 
-      <a href="/leaderboard" className="rounded-full bg-white/10 px-4 py-2 font-semibold hover:bg-white/20">
-        Rang lista
-      </a>
-
-      {currentRole === "admin" && (
-        <a href="/admin" className="rounded-full bg-amber-500 px-4 py-2 font-bold text-white">
-          Admin
+      <nav className="hidden items-center gap-2 rounded-full bg-white/5 p-2 md:flex">
+        <a href="#testovi" className="rounded-full px-5 py-2 font-semibold hover:bg-white/10">
+          Testovi
         </a>
-      )}
+        <a href="/about" className="rounded-full px-5 py-2 font-semibold hover:bg-white/10">
+          O projektu
+        </a>
+        <a href="/leaderboard" className="rounded-full px-5 py-2 font-semibold hover:bg-white/10">
+          Rang lista
+        </a>
 
-      {currentUser ? (
-        <>
-          <span className="rounded-full bg-white/10 px-4 py-2 font-semibold">
-            👤 {currentUser}
-          </span>
+        {currentRole === "admin" && (
+          <a href="/admin" className="rounded-full bg-amber-500 px-5 py-2 font-bold">
+            Admin
+          </a>
+        )}
 
+        {currentUser ? (
+          <>
+            <span className="rounded-full bg-white/10 px-5 py-2 font-semibold">
+              👤 {currentUser}
+            </span>
+            <button
+              onClick={() => {
+                localStorage.removeItem("currentUser");
+                localStorage.removeItem("currentRole");
+                window.location.reload();
+              }}
+              className="rounded-full bg-red-500 px-5 py-2 font-bold"
+            >
+              Odjava
+            </button>
+          </>
+        ) : (
+          <a href="/login" className="rounded-full bg-blue-600 px-6 py-2 font-bold">
+            Prijava
+          </a>
+        )}
+      </nav>
+    </div>
+
+    {menuOpen && (
+      <nav className="mt-4 grid gap-2 rounded-3xl border border-white/10 bg-white/10 p-3 md:hidden">
+        <a href="#testovi" className="rounded-2xl px-4 py-3 font-semibold hover:bg-white/10">
+          Testovi
+        </a>
+        <a href="/about" className="rounded-2xl px-4 py-3 font-semibold hover:bg-white/10">
+          O projektu
+        </a>
+        <a href="/leaderboard" className="rounded-2xl px-4 py-3 font-semibold hover:bg-white/10">
+          Rang lista
+        </a>
+
+        {currentRole === "admin" && (
+          <a href="/admin" className="rounded-2xl bg-amber-500 px-4 py-3 font-bold">
+            Admin
+          </a>
+        )}
+
+        {currentUser ? (
           <button
             onClick={() => {
               localStorage.removeItem("currentUser");
               localStorage.removeItem("currentRole");
               window.location.reload();
             }}
-            className="rounded-full bg-red-500 px-4 py-2 font-bold text-white"
+            className="rounded-2xl bg-red-500 px-4 py-3 text-left font-bold"
           >
             Odjava
           </button>
-        </>
-      ) : (
-        <a href="/login" className="rounded-full bg-blue-600 px-5 py-2 font-bold text-white">
-          Prijava
-        </a>
-      )}
-    </nav>
+        ) : (
+          <a href="/login" className="rounded-2xl bg-blue-600 px-4 py-3 font-bold">
+            Prijava
+          </a>
+        )}
+      </nav>
+    )}
   </div>
 </header>
 
