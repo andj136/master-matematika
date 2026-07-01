@@ -360,10 +360,7 @@ const buildTestLink = (mode: string) => {
     
 
       <section id="testovi" className="mx-auto max-w-7xl px-5 pb-16">
-        
         <div className="mb-8 rounded-[32px] border border-white/70 bg-white/80 p-6 shadow-xl backdrop-blur-xl">
-  <h2 className="mb-4 text-2xl font-black">Izaberi razred</h2>
-  <div className="mb-8 rounded-[32px] border border-white/70 bg-white/80 p-6 shadow-xl backdrop-blur-xl">
   <h2 className="mb-4 text-2xl font-black">
     Izaberi oblast
   </h2>
@@ -385,6 +382,10 @@ const buildTestLink = (mode: string) => {
     ))}
   </div>
 </div>
+        
+        <div className="mb-8 rounded-[32px] border border-white/70 bg-white/80 p-6 shadow-xl backdrop-blur-xl">
+  <h2 className="mb-4 text-2xl font-black">Izaberi razred</h2>
+
 
   <div className="flex flex-wrap gap-3">
    {GRADES.map((grade) => (
@@ -399,7 +400,9 @@ const buildTestLink = (mode: string) => {
     }`}
   >
     {grade}
+    
   </button>
+
 ))}
   </div>
 </div>
