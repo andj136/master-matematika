@@ -24,9 +24,12 @@ const AREAS = [
   "Statistika i verovatnoća",
 ];
 
+const GRADES = ["5. razred", "6. razred", "7. razred", "8. razred"];
+
 export default function Home() {
   const [history, setHistory] = useState<LastResult[]>([]);
   const [selectedArea, setSelectedArea] = useState("Sve oblasti");
+  const [selectedGrade, setSelectedGrade] = useState("5. razred");
   const [customQuestionsCount, setCustomQuestionsCount] = useState(0);
   const [currentUser, setCurrentUser] = useState("");
   const [currentRole, setCurrentRole] = useState("");
@@ -78,16 +81,17 @@ export default function Home() {
     };
   }, [history]);
 
-  const buildTestLink = (mode: string) => {
-    const params = new URLSearchParams();
-    params.set("mode", mode);
+const buildTestLink = (mode: string) => {
+  const params = new URLSearchParams();
+  params.set("mode", mode);
+  params.set("grade", selectedGrade);
 
-    if (selectedArea !== "Sve oblasti") {
-      params.set("area", selectedArea);
-    }
+  if (selectedArea !== "Sve oblasti") {
+    params.set("area", selectedArea);
+  }
 
-    return `/test?${params.toString()}`;
-  };
+  return `/test?${params.toString()}`;
+};
 
   return (
     <main className="min-h-screen overflow-hidden bg-[radial-gradient(circle_at_top_left,#dbeafe,transparent_35%),radial-gradient(circle_at_top_right,#ede9fe,transparent_30%),linear-gradient(135deg,#f8fafc,#eef2ff,#dbeafe)] text-slate-900">
@@ -358,24 +362,25 @@ export default function Home() {
       <section id="testovi" className="mx-auto max-w-7xl px-5 pb-16">
         
         <div className="mb-8 rounded-[32px] border border-white/70 bg-white/80 p-6 shadow-xl backdrop-blur-xl">
-          <h2 className="mb-4 text-2xl font-black">Izaberi oblast</h2>
+  <h2 className="mb-4 text-2xl font-black">Izaberi razred</h2>
 
-          <div className="flex flex-wrap gap-3">
-            {AREAS.map((area) => (
-              <button
-                key={area}
-                onClick={() => setSelectedArea(area)}
-                className={`rounded-full border px-4 py-2 font-semibold transition ${
-                  selectedArea === area
-                    ? "border-blue-600 bg-blue-600 text-white shadow-lg shadow-blue-500/20"
-                    : "border-slate-200 bg-white text-slate-700 hover:bg-slate-50"
-                }`}
-              >
-                {area}
-              </button>
-            ))}
-          </div>
-        </div>
+  <div className="flex flex-wrap gap-3">
+   {GRADES.map((grade) => (
+  <button
+    key={grade}
+    type="button"
+    onClick={() => setSelectedGrade(grade)}
+    className={`rounded-full border px-5 py-3 font-semibold transition ${
+      selectedGrade === grade
+        ? "border-violet-600 bg-violet-600 text-white shadow-lg shadow-violet-500/20"
+        : "border-slate-200 bg-white text-slate-700 hover:bg-slate-50"
+    }`}
+  >
+    {grade}
+  </button>
+))}
+  </div>
+</div>
 
         <div className="grid gap-6 lg:grid-cols-3">
           {[

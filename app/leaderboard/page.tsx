@@ -17,18 +17,19 @@ type Result = {
 export default function LeaderboardPage() {
   const [results, setResults] = useState<Result[]>([]);
 
-  useEffect(() => {
-    const saved = localStorage.getItem("testHistory");
+ useEffect(() => {
+  const saved = localStorage.getItem("allTestResults");
 
-    if (saved) {
-      const parsed = JSON.parse(saved);
-      const sorted = parsed.sort(
-        (a: Result, b: Result) => b.percentage - a.percentage
-      );
+  if (saved) {
+    const parsed = JSON.parse(saved);
 
-      setResults(sorted);
-    }
-  }, []);
+    const sorted = parsed.sort(
+      (a: Result, b: Result) => b.percentage - a.percentage
+    );
+
+    setResults(sorted);
+  }
+}, []);
 
   return (
     <main className="min-h-screen bg-[radial-gradient(circle_at_top_left,#dbeafe,transparent_35%),radial-gradient(circle_at_top_right,#ede9fe,transparent_30%),linear-gradient(135deg,#f8fafc,#eef2ff,#dbeafe)] px-5 py-10 text-slate-900">

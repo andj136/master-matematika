@@ -2,14 +2,16 @@
 
 import { useEffect, useState } from "react";
 
+
+
 type CustomQuestion = {
   question: string;
   answers: string[];
   correct: string;
   area: string;
   difficulty: string;
+  grade: string;
 };
-
 const emptyForm = {
   question: "",
   answerA: "",
@@ -19,6 +21,7 @@ const emptyForm = {
   correct: "",
   area: "Brojevi i operacije",
   difficulty: "Lako",
+  grade: "5. razred",
 };
 
 export default function AdminPage() {
@@ -51,14 +54,14 @@ export default function AdminPage() {
       return;
     }
 
-    const newQuestion: CustomQuestion = {
-      question: form.question,
-      answers,
-      correct: form.correct,
-      area: form.area,
-      difficulty: form.difficulty,
-    };
-
+   const newQuestion: CustomQuestion = {
+  question: form.question,
+  answers,
+  correct: form.correct,
+  area: form.area,
+  difficulty: form.difficulty,
+  grade: form.grade,
+};
     const updated = [...customQuestions, newQuestion];
     localStorage.setItem("customQuestions", JSON.stringify(updated));
     setCustomQuestions(updated);
@@ -71,6 +74,16 @@ export default function AdminPage() {
     localStorage.setItem("customQuestions", JSON.stringify(updated));
     setCustomQuestions(updated);
   };
+  const handleClearLeaderboard = () => {
+  const confirmDelete = confirm(
+    "Da li ste sigurni da želite da obrišete celu rang listu?"
+  );
+
+  if (!confirmDelete) return;
+
+  localStorage.removeItem("allTestResults");
+  setMessage("Rang lista je uspešno obrisana.");
+};
 
   return (
     <main className="min-h-screen bg-[radial-gradient(circle_at_top_left,#dbeafe,transparent_35%),radial-gradient(circle_at_top_right,#ede9fe,transparent_30%),linear-gradient(135deg,#f8fafc,#eef2ff,#dbeafe)] text-slate-900">
@@ -182,6 +195,18 @@ export default function AdminPage() {
                   <option>Srednje</option>
                   <option>Teško</option>
                 </select>
+                <select
+  value={form.grade}
+  onChange={(e) =>
+    setForm((prev) => ({ ...prev, grade: e.target.value }))
+  }
+  className="w-full rounded-3xl border border-slate-200 bg-white p-5 font-semibold outline-none"
+>
+  <option>5. razred</option>
+  <option>6. razred</option>
+  <option>7. razred</option>
+  <option>8. razred</option>
+</select>
               </div>
 
               <button
@@ -190,6 +215,13 @@ export default function AdminPage() {
               >
                 Sačuvaj pitanje
               </button>
+              <button
+  type="button"
+  onClick={handleClearLeaderboard}
+  className="w-full rounded-3xl bg-red-600 py-5 text-lg font-black text-white shadow-xl shadow-red-500/25 transition hover:-translate-y-1 hover:bg-red-700 hover:shadow-2xl"
+>
+  🗑 Obriši rang listu
+</button>
 
               {message && (
                 <div
