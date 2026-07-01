@@ -16,14 +16,14 @@ export const metadata: Metadata = {
       "Interaktivna web aplikacija za proveru znanja iz matematike osnovne škole.",
     url: "https://master-matematika.vercel.app",
     siteName: "Master Matematika",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Master Matematika",
-      },
-    ],
+   images: [
+  {
+    url: "https://master-matematika.vercel.app/og-image.png",
+    width: 1200,
+    height: 630,
+    alt: "Master Matematika",
+  },
+],
     locale: "sr_RS",
     type: "website",
   },
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     title: "Master Matematika",
     description:
       "Interaktivna web aplikacija za proveru znanja iz matematike osnovne škole.",
-    images: ["/og-image.png"],
+    images: ["https://master-matematika.vercel.app/og-image.png"],
   },
 };
 
