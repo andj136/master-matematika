@@ -217,9 +217,7 @@ if (mode === "easy") {
   selectedCount = 12;
   selectedTime = 900;
 } else if (mode === "hard") {
-  filteredQuestions = allQuestions.filter(
-    (q) => q.difficulty === "Srednje" || q.difficulty === "Teško"
-  );
+  filteredQuestions = allQuestions.filter((q) => q.difficulty === "Teško");
   selectedCount = 15;
   selectedTime = 1200;
 }
@@ -244,7 +242,7 @@ if (mode === "easy") {
 
     setAreaStats(stats);
     setIsReady(true);
-  }, [mode, areaFilter]);
+  }, [mode, areaFilter, gradeFilter]);
 
   useEffect(() => {
     if (!isReady || finished || !started) return;
