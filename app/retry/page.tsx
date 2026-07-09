@@ -287,14 +287,9 @@ export default function RetryPage() {
               </div>
             </div>
             <div className="mt-6 rounded-2xl bg-blue-50 border border-blue-100 p-5">
-  <h3 className="font-bold text-blue-900 mb-2">
-    Cilj ovog testa
-  </h3>
+  
 
-  <p className="text-blue-800">
-    Sistem je izdvojio pitanja na kojima prethodno nisi ostvario maksimalan rezultat.
-    Cilj je da kroz kratko ponavljanje učvrstiš znanje iz tih oblasti.
-  </p>
+  
 </div>
 
             <div className="flex flex-wrap gap-3 mb-6">
