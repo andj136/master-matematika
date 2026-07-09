@@ -286,11 +286,7 @@ export default function RetryPage() {
                 ></div>
               </div>
             </div>
-            <div className="mt-6 rounded-2xl bg-blue-50 border border-blue-100 p-5">
-  
-
-  
-</div>
+          
 
             <div className="flex flex-wrap gap-3 mb-6">
               <span className="px-3 py-1 rounded-full bg-indigo-100 text-indigo-700 text-sm font-semibold border border-indigo-200">
