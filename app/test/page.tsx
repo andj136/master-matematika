@@ -642,7 +642,7 @@ return (
     </div>
 
    <h1 className="text-4xl md:text-5xl font-black mb-4">
-  Spremna za test?
+  Spremni za test?
 </h1>
 
 <p className="text-lg text-white/90 max-w-2xl leading-relaxed">
