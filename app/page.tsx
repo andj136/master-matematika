@@ -360,28 +360,7 @@ const buildTestLink = (mode: string) => {
     
 
       <section id="testovi" className="mx-auto max-w-7xl px-5 pb-16">
-        <div className="mb-8 rounded-[32px] border border-white/70 bg-white/80 p-6 shadow-xl backdrop-blur-xl">
-  <h2 className="mb-4 text-2xl font-black">
-    Izaberi oblast
-  </h2>
-
-  <div className="flex flex-wrap gap-3">
-    {AREAS.map((area) => (
-      <button
-        key={area}
-        type="button"
-        onClick={() => setSelectedArea(area)}
-        className={`rounded-full border px-5 py-3 font-semibold transition ${
-          selectedArea === area
-            ? "border-blue-600 bg-blue-600 text-white shadow-lg"
-            : "border-slate-200 bg-white text-slate-700 hover:bg-slate-50"
-        }`}
-      >
-        {area}
-      </button>
-    ))}
-  </div>
-</div>
+        
         
         <div className="mb-8 rounded-[32px] border border-white/70 bg-white/80 p-6 shadow-xl backdrop-blur-xl">
   <h2 className="mb-4 text-2xl font-black">Izaberi razred</h2>

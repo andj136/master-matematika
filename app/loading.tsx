@@ -6,12 +6,9 @@ export default function Loading() {
 
         <div className="mx-auto mb-6 h-16 w-16 animate-spin rounded-full border-4 border-blue-200 border-t-blue-600"></div>
 
-        <a
-  href="/"
-  className="text-2xl font-black tracking-tight"
->
+        <a href="/" className="text-3xl font-black leading-none">
   <span className="text-white">Master</span>
-  <span className="text-blue-400">Matematika</span>
+  <span className="text-blue-500 -ml-0.5">Matematika</span>
 </a>
 
         <p className="mt-2 text-slate-500">
