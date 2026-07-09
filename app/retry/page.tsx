@@ -100,9 +100,13 @@ export default function RetryPage() {
       <main className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
         <header className="sticky top-0 z-20 border-b border-white/40 bg-slate-950/85 backdrop-blur text-white">
           <div className="max-w-5xl mx-auto px-4 py-4 flex items-center justify-between">
-            <a href="/" className="font-bold text-xl">
-              Master Matematika
-            </a>
+            <a
+  href="/"
+  className="text-2xl font-black tracking-tight"
+>
+  <span className="text-white">Master</span>
+  <span className="text-blue-400">Matematika</span>
+</a>
 
             <a
               href="/"
@@ -141,9 +145,13 @@ export default function RetryPage() {
       <main className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
         <header className="sticky top-0 z-20 border-b border-white/40 bg-slate-950/85 backdrop-blur text-white">
           <div className="max-w-5xl mx-auto px-4 py-4 flex items-center justify-between">
-            <a href="/" className="font-bold text-xl">
-              Master Matematika
-            </a>
+            <a
+  href="/"
+  className="text-2xl font-black tracking-tight"
+>
+  <span className="text-white">Master</span>
+  <span className="text-blue-400">Matematika</span>
+</a>
 
             <a
               href="/"
@@ -229,9 +237,13 @@ export default function RetryPage() {
     <main className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
       <header className="sticky top-0 z-20 border-b border-white/40 bg-slate-950/85 backdrop-blur text-white">
         <div className="max-w-5xl mx-auto px-4 py-4 flex items-center justify-between">
-          <a href="/" className="font-bold text-xl">
-            Master Matematika
-          </a>
+        <a
+  href="/"
+  className="text-2xl font-black tracking-tight"
+>
+  <span className="text-white">Master</span>
+  <span className="text-blue-400">Matematika</span>
+</a>
 
           <a
             href="/"
