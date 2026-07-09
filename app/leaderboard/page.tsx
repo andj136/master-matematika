@@ -36,9 +36,13 @@ export default function LeaderboardPage() {
       <div className="mx-auto max-w-5xl">
         <div className="mb-10 flex items-center justify-between gap-4">
           <div>
-            <p className="mb-2 inline-flex rounded-full bg-white/70 px-4 py-2 text-sm font-bold text-blue-700 shadow-sm">
-              Master Matematika
-            </p>
+           <a
+  href="/"
+  className="text-2xl font-black tracking-tight"
+>
+  <span className="text-white">Master</span>
+  <span className="text-blue-400">Matematika</span>
+</a>
 
             <h1 className="text-5xl font-black tracking-tight">
               Rang lista 🏆

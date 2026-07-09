@@ -613,12 +613,13 @@ return (
   <header className="sticky top-0 z-20 backdrop-blur-xl bg-slate-950/85 border-b border-white/10 shadow-lg">
     <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
 
-      <a
-        href="/"
-        className="text-white font-bold text-2xl tracking-tight hover:text-blue-300 transition"
-      >
-        Master matematika
-      </a>
+     <a
+  href="/"
+  className="text-2xl font-black tracking-tight"
+>
+  <span className="text-white">Master</span>
+  <span className="text-blue-400">Matematika</span>
+</a>
 
       <a
         href="/"

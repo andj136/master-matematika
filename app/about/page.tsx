@@ -22,9 +22,13 @@ export default function AboutPage() {
             🎓 O projektu
           </div>
 
-          <h1 className="text-4xl font-black tracking-tight md:text-6xl">
-            Master Matematika
-          </h1>
+          <a
+  href="/"
+  className="text-2xl font-black tracking-tight"
+>
+  <span className="text-white">Master</span>
+  <span className="text-blue-400">Matematika</span>
+</a>
 
           <p className="mx-auto mt-5 max-w-3xl text-lg leading-8 text-slate-600">
             Edukativna web aplikacija razvijena kao prototip sistema za proveru

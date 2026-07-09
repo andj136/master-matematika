@@ -6,9 +6,13 @@ export default function Loading() {
 
         <div className="mx-auto mb-6 h-16 w-16 animate-spin rounded-full border-4 border-blue-200 border-t-blue-600"></div>
 
-        <h1 className="text-3xl font-black">
-          Master Matematika
-        </h1>
+        <a
+  href="/"
+  className="text-2xl font-black tracking-tight"
+>
+  <span className="text-white">Master</span>
+  <span className="text-blue-400">Matematika</span>
+</a>
 
         <p className="mt-2 text-slate-500">
           Učitavanje...
