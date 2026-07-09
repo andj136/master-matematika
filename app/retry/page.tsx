@@ -101,7 +101,7 @@ export default function RetryPage() {
         <header className="sticky top-0 z-20 border-b border-white/40 bg-slate-950/85 backdrop-blur text-white">
           <div className="max-w-5xl mx-auto px-4 py-4 flex items-center justify-between">
             <a href="/" className="font-bold text-xl">
-              Matematički test sistem
+              Master Matematika
             </a>
 
             <a
@@ -142,7 +142,7 @@ export default function RetryPage() {
         <header className="sticky top-0 z-20 border-b border-white/40 bg-slate-950/85 backdrop-blur text-white">
           <div className="max-w-5xl mx-auto px-4 py-4 flex items-center justify-between">
             <a href="/" className="font-bold text-xl">
-              Matematički test sistem
+              Master Matematika
             </a>
 
             <a
@@ -158,7 +158,7 @@ export default function RetryPage() {
           <div className="max-w-4xl mx-auto bg-white/90 backdrop-blur rounded-3xl shadow-2xl border border-white/60 p-8">
             <div className="text-center mb-8">
               <div className="inline-flex px-4 py-2 rounded-full bg-red-100 text-red-700 text-sm font-semibold mb-4">
-                Loop iz grešaka
+                Vežbanje prethodnih grešaka
               </div>
 
               <h1 className="text-4xl font-bold text-slate-900 mb-3">
@@ -203,7 +203,7 @@ export default function RetryPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button
                 onClick={() => window.location.reload()}
-                className="bg-gradient-to-r from-red-500 to-orange-500 text-white px-6 py-3 rounded-2xl font-semibold shadow-lg hover:scale-[1.02] transition"
+                className="bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 text-white px-6 py-3 rounded-2xl font-semibold shadow-lg hover:scale-[1.02] transition"
               >
                 Pokušaj ponovo
               </button>
@@ -230,7 +230,7 @@ export default function RetryPage() {
       <header className="sticky top-0 z-20 border-b border-white/40 bg-slate-950/85 backdrop-blur text-white">
         <div className="max-w-5xl mx-auto px-4 py-4 flex items-center justify-between">
           <a href="/" className="font-bold text-xl">
-            Matematički test sistem
+            Master Matematika
           </a>
 
           <a
@@ -244,13 +244,18 @@ export default function RetryPage() {
 
       <div className="px-4 py-10">
         <div className="max-w-3xl mx-auto bg-white/90 backdrop-blur rounded-3xl shadow-2xl border border-white/60 overflow-hidden">
-          <div className="bg-gradient-to-r from-red-500 to-orange-500 px-8 py-6 text-white">
+          <div className="bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 px-8 py-6 text-white">
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
               <div>
-                <p className="text-sm opacity-90 mb-1">Loop iz grešaka</p>
-                <h1 className="text-3xl font-bold">
+                <p className="text-sm opacity-90 mb-1 tracking-wide uppercase">
+  Vežbanje prethodnih grešaka
+</p>
+                <h1 className="text-4xl md:text-5xl font-black">
                   Pitanje {currentQuestion + 1}/{questions.length}
                 </h1>
+                <p className="text-white/80 mt-2">
+  Vežbanje pitanja koja nisu tačno rešena
+</p>
               </div>
             </div>
           </div>
@@ -264,11 +269,21 @@ export default function RetryPage() {
 
               <div className="w-full bg-slate-200 rounded-full h-3 overflow-hidden">
                 <div
-                  className="bg-gradient-to-r from-red-500 to-orange-500 h-3 rounded-full transition-all duration-500"
+                  className="bg-gradient-to-r from-blue-500 to-violet-600 h-3 rounded-full transition-all duration-500"
                   style={{ width: `${progress}%` }}
                 ></div>
               </div>
             </div>
+            <div className="mt-6 rounded-2xl bg-blue-50 border border-blue-100 p-5">
+  <h3 className="font-bold text-blue-900 mb-2">
+    Cilj ovog testa
+  </h3>
+
+  <p className="text-blue-800">
+    Sistem je izdvojio pitanja na kojima prethodno nisi ostvario maksimalan rezultat.
+    Cilj je da kroz kratko ponavljanje učvrstiš znanje iz tih oblasti.
+  </p>
+</div>
 
             <div className="flex flex-wrap gap-3 mb-6">
               <span className="px-3 py-1 rounded-full bg-indigo-100 text-indigo-700 text-sm font-semibold border border-indigo-200">
@@ -284,11 +299,17 @@ export default function RetryPage() {
               </span>
             </div>
 
-            <div className="bg-slate-50 border border-slate-100 rounded-2xl p-6 mb-6">
-              <p className="text-2xl font-semibold text-slate-900 leading-9">
-                {current.question}
-              </p>
-            </div>
+            <div className="flex items-start gap-4">
+
+<div className="text-4xl">
+🧠
+</div>
+
+<p className="text-2xl font-bold text-slate-900 leading-9">
+  {current.question}
+</p>
+
+</div>
 
             <div className="grid gap-4 mb-6">
               {current.answers.map((answer, index) => {
@@ -297,7 +318,7 @@ export default function RetryPage() {
 
                 if (selectedAnswer === answer && !hasCheckedAnswer) {
                   buttonClass =
-                    "bg-red-500 text-white border-red-600 shadow-lg";
+                    "bg-blue-600 text-white border-red-600 shadow-lg";
                 }
 
                 if (hasCheckedAnswer) {
@@ -349,7 +370,7 @@ export default function RetryPage() {
                 className={`w-full py-4 rounded-2xl font-semibold text-lg transition-all ${
                   selectedAnswer === null
                     ? "bg-slate-200 text-slate-500 cursor-not-allowed"
-                    : "bg-gradient-to-r from-red-500 to-orange-500 text-white shadow-lg hover:scale-[1.01]"
+                    : "bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 text-white shadow-lg hover:scale-[1.01]"
                 }`}
               >
                 Proveri odgovor
